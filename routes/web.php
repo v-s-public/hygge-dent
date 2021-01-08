@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::domain(env('SITE_URL'))->group(function () {
+    Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
 });
+
+Auth::routes();
+
+Route::domain('admin.' . env('SITE_URL'))->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    });
+});
+
