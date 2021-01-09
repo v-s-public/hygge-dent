@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Session;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,14 +15,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::domain(env('SITE_URL'))->group(function () {
+    Route::get('locale/{locale}', function ($locale) {
+        Session::put('locale', $locale);
+
+        return redirect()->back();
+    })->name('locale');
+
     Route::get('/', [App\Http\Controllers\Frontend\HomeController::class, 'index'])->name('home');
 });
 
-Auth::routes();
+Route::get('login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
 
 Route::domain('admin.' . env('SITE_URL'))->group(function () {
-    Route::middleware('auth')->group(function () {
-        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index']);
+    Route::middleware('auth')->name('admin.')->group(function () {
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
+
+        Route::resource('employees', App\Http\Controllers\Admin\EmployeesController::class);
+        Route::get('employees/list/all', [App\Http\Controllers\Admin\EmployeesController::class, 'employeesList'])->name('employees.list');
     });
 });
 

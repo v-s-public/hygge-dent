@@ -21,6 +21,43 @@
         </style>
     </head>
     <body class="antialiased">
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('locale', ['locale' => 'en']) }}">EN</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('locale', ['locale' => 'ru']) }}">RU</a>
+            </li>
+        </ul>
+
+            <h1><?=app()->getLocale()?></h1>
+        <ul>
+        @foreach($employees as $employee)
+
+                <li>{{$employee->fio}}</li>
+                <li>{{$employee->position}}</li>
+                <li>{{$employee->description}}</li>
+
+        @endforeach
+        </ul>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">{{ __('messages.dashboard') }}</div>
+
+                            <div class="card-body">
+                                {{ __('messages.you_are_logged_in') }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">

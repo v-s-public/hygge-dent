@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
+use App\Models\Employee;
 
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        return view('frontend.welcome');
+        $employees = Employee::all();
+        return view('frontend.home', compact('employees'));
     }
 }

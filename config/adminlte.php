@@ -241,22 +241,22 @@ return [
 //            'label'       => 4,
 //            'label_color' => 'success',
 //        ],
-        ['header' => 'Управление страницами'],
+        ['header' => 'Контент'],
         [
-            'text' => 'Команда',
-            'url'  => '*',
+            'text' => 'Сотрудники',
+            'route'  => 'admin.employees.index',
             'icon' => 'fas fa-fw fa-users',
         ],
-        [
-            'text' => 'Новости',
-            'url'  => '*',
-            'icon' => 'fas fa-fw fa-newspaper',
-        ],
-        [
-            'text' => 'Цены',
-            'url'  => '8',
-            'icon' => 'fas fa-fw fa-hryvnia',
-        ],
+//        [
+//            'text' => 'Новости',
+//            'url'  => '*',
+//            'icon' => 'fas fa-fw fa-newspaper',
+//        ],
+//        [
+//            'text' => 'Цены',
+//            'url'  => '*',
+//            'icon' => 'fas fa-fw fa-hryvnia',
+//        ],
 //        [
 //            'text' => 'change_password',
 //            'url'  => 'admin/settings',
