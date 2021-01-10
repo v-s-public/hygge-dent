@@ -6,8 +6,7 @@
     <div class="card card-default color-palette-box">
         <div class="card-header">
             <h3 class="card-title">
-                <i class="fas fa-users"></i>
-                Сотрудники
+                <i class="fas fa-users"></i> Сотрудники
             </h3>
         </div>
         <div class="card-body">
@@ -19,7 +18,6 @@
                             <tr>
                                 <th>Ф.И.О.</th>
                                 <th>Должность</th>
-                                <th>Описание</th>
                                 <th>Действия</th>
                             </tr>
                             </thead>
@@ -49,11 +47,13 @@
                 responsive: true,
                 pagingType: 'numbers',
                 serverSide: true,
+                language: {
+                    url: '/localization/Russian.json'
+                },
                 ajax: '{!! route( $routePrefix.'.list') !!}',
                 columns: [
                     { "data": "fio" },
                     { "data": "position" },
-                    { "data": "description" },
                     { "data": "actions", "orderable": false, "targets": 0 },
                 ]
             })
