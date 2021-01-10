@@ -18,7 +18,7 @@
                             <tr>
                                 <th>Ф.И.О.</th>
                                 <th>Должность</th>
-                                <th>Действия</th>
+                                <th class="actions">Действия</th>
                             </tr>
                             </thead>
                         </table>
