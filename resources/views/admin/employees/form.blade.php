@@ -1,3 +1,4 @@
+@section('plugins.jsValidation', true)
 <div class="row">
     <div class="col-6">
         <div class="form-group">
@@ -68,3 +69,6 @@
         </div>
     </div>
 </div>
+@section('js')
+    {!! JsValidator::formRequest('App\Http\Requests\Admin\EmployeeRequest', '#form'); !!}
+@stop

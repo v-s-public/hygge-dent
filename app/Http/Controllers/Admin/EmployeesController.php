@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\EmployeeRequest;
 use App\Models\Employee;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -70,10 +71,10 @@ class EmployeesController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param EmployeeRequest $request
      * @return RedirectResponse
      */
-    public function store(Request $request) : RedirectResponse
+    public function store(EmployeeRequest $request) : RedirectResponse
     {
         Employee::create([
             'fio' => [

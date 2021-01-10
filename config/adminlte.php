@@ -246,6 +246,7 @@ return [
             'text' => 'Сотрудники',
             'route'  => 'admin.employees.index',
             'icon' => 'fas fa-fw fa-users',
+            'active' => ['employees/*']
         ],
 //        [
 //            'text' => 'Новости',
@@ -420,6 +421,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '//cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.min.js',
+                ],
+            ],
+        ],
+        'jsValidation' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/jsvalidation/js/jsvalidation.min.js',
                 ],
             ],
         ],
