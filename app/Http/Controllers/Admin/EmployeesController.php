@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 
 class EmployeesController extends Controller
 {
@@ -60,22 +61,39 @@ class EmployeesController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function create()
+    public function create() : View
     {
-        //
+        $routePrefix = $this->routePrefix;
+        return view($this->folderPrefix . '.create', compact('routePrefix'));
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return RedirectResponse
      */
-    public function store(Request $request)
+    public function store(Request $request) : RedirectResponse
     {
-        //
+        Employee::create([
+            'fio' => [
+                'ua' => $request->get('fio-ua'),
+                'en' => $request->get('fio-en'),
+                'ru' => $request->get('fio-ru')
+            ],
+            'position' => [
+                'ua' => $request->get('position-ua'),
+                'en' => $request->get('position-en'),
+                'ru' => $request->get('position-ru')
+            ],
+            'description' => [
+                'ua' => $request->get('description-ua'),
+                'en' => $request->get('description-en'),
+                'ru' => $request->get('description-ru')
+            ]
+        ]);
+
+        return redirect(route($this->routePrefix . '.index'));
     }
 
     /**

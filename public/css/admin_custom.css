@@ -2,3 +2,11 @@
     max-width: 71px; !important;
     width: 71px; !important;
 }
+
+.add-button-container{
+    margin: 0 0 1.25rem 0;
+}
+
+.required-field-asterisk{
+    color: #FF0000;
+}

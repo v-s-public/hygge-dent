@@ -3,15 +3,18 @@
 @section('title', 'Сотрудники')
 
 @section('content')
-    <div class="card card-default color-palette-box">
-        <div class="card-header">
-            <h3 class="card-title">
-                <i class="fas fa-users"></i> Сотрудники
-            </h3>
-        </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12">
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-default color-palette-box">
+                <div class="card-header">
+                    <h3 class="card-title">
+                        <i class="fas fa-users"></i> Сотрудники
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="add-button-container">
+                        <a href="{{ route($routePrefix.'.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Добавить сотрудника</a>
+                    </div>
                     <div class="table-responsive">
                         <table id="data-table" class="display table table-bordered">
                             <thead>
@@ -25,9 +28,7 @@
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.card-body -->
     </div>
 @stop
 

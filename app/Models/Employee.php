@@ -13,4 +13,10 @@ class Employee extends Model
     protected $primaryKey = 'employee_id';
 
     public $translatable = ['fio', 'position', 'description'];
+
+    protected $fillable = ['fio', 'position', 'description'];
+
+    protected $attributes = [
+        'image' => 'image'
+    ];
 }
