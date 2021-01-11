@@ -76,6 +76,13 @@ class EmployeesController extends Controller
      */
     public function store(EmployeeRequest $request) : RedirectResponse
     {
+        $imageName = 'employee-' . time().'.'.$request->image->extension();
+        $request->image->move(public_path('images'), $imageName);
+
+        dd($imageName);
+
+        /* Store $imageName name in DATABASE from HERE */
+
         Employee::create([
             'fio' => [
                 'ua' => $request->get('fio-ua'),

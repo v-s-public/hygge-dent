@@ -424,13 +424,33 @@ return [
                 ],
             ],
         ],
-        'jsValidation' => [
+        'JsValidation' => [
             'active' => false,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '/vendor/jsvalidation/js/jsvalidation.min.js',
+                ],
+            ],
+        ],
+        'FileUploader' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/file-uploader/js/fileinput.min.js',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/file-uploader/js/locales/ru.js',
+                ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/vendor/file-uploader/css/fileinput.min.css',
                 ],
             ],
         ],

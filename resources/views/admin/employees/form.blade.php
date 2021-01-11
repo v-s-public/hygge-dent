@@ -1,4 +1,5 @@
-@section('plugins.jsValidation', true)
+@section('plugins.JsValidation', true)
+@section('plugins.FileUploader', true)
 <div class="row">
     <div class="col-6">
         <div class="form-group">
@@ -57,18 +58,31 @@
 
 <hr>
 
-<div class="form-group">
-    <label for="exampleInputFile">File input</label><span class="required-field-asterisk">*</span>
-    <div class="input-group">
-        <div class="custom-file">
-            <input type="file" class="custom-file-input" id="exampleInputFile">
-            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-        </div>
-        <div class="input-group-append">
-            <span class="input-group-text" id="">Upload</span>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group">
+            <label for="image">Фото<span class="required-field-asterisk">*</span></label>
+            <div class="file-loading">
+                <input id="image" name="image" type="file">
+            </div>
         </div>
     </div>
 </div>
+
 @section('js')
     {!! JsValidator::formRequest('App\Http\Requests\Admin\EmployeeRequest', '#form'); !!}
+    <script>
+        $(document).ready(function() {
+            $("#image").fileinput({
+                showUpload: false,
+                dropZoneEnabled: false,
+                maxFileCount: 1,
+                mainClass: "input-group",
+                language: 'ru',
+                fileActionSettings: {
+                    showZoom: false
+                }
+            });
+        });
+    </script>
 @stop

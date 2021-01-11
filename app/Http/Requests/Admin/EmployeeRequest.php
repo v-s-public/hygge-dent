@@ -53,6 +53,7 @@ class EmployeeRequest extends FormRequest
             'description-ru' => [
                 'required'
             ],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
 
         ];
     }
@@ -76,6 +77,8 @@ class EmployeeRequest extends FormRequest
             'description-ua.required' => 'Поле является обязательным для заполения.',
             'description-en.required' => 'Поле является обязательным для заполения.',
             'description-ru.required' => 'Поле является обязательным для заполения.',
+
+            'image.required' => 'Поле является обязательным для заполения.',
         ];
     }
 }
