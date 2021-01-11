@@ -21,6 +21,7 @@
                             <tr>
                                 <th>Ф.И.О.</th>
                                 <th>Должность</th>
+                                <th class="employees-grid-image">Фото</th>
                                 <th class="actions">Действия</th>
                             </tr>
                             </thead>
@@ -49,12 +50,13 @@
                 pagingType: 'numbers',
                 serverSide: true,
                 language: {
-                    url: '/localization/Russian.json'
+                    url: '/vendor/data-tables/localization/Russian.json'
                 },
                 ajax: '{!! route( $routePrefix.'.list') !!}',
                 columns: [
                     { "data": "fio" },
                     { "data": "position" },
+                    { "data": "image", "orderable": false, "targets": 0 },
                     { "data": "actions", "orderable": false, "targets": 0 },
                 ]
             })
