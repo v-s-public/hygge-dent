@@ -18,6 +18,7 @@ class EmployeesController extends Controller
 
     protected string $folderPrefix = 'admin.employees';
     protected string $routePrefix = 'admin.employees';
+    protected string $diskName = 'employees';
 
     /**
      * Display a listing of the resource.
@@ -40,6 +41,7 @@ class EmployeesController extends Controller
     {
         $model = Employee::all();
         $routePrefix = $this->routePrefix;
+        $diskName = $this->diskName;
         $primaryKey = 'employee_id';
         $actions = ['edit', 'show', 'destroy'];
 
@@ -53,10 +55,14 @@ class EmployeesController extends Controller
             ->editColumn('description', function ($model){
                 return $model->description;
             })
+            ->addColumn('image', function ($instance) use ($diskName) {
+                $url = ImagesService::getOne($diskName, $instance->image);
+                return "<img src='{$url}' class='rounded-circle' width='50px'/>";
+            })
             ->addColumn('actions', function($instance) use ($routePrefix, $actions, $primaryKey) {
                 return view('admin.actions.grid_actions', compact('instance', 'routePrefix', 'actions', 'primaryKey'));
             })
-            ->rawColumns(['actions'])
+            ->rawColumns(['actions', 'image'])
             ->make(true);
     }
 
@@ -77,9 +83,9 @@ class EmployeesController extends Controller
      */
     public function store(EmployeeRequest $request) : RedirectResponse
     {
-        $imageName = ImagesService::saveOne('employees', $request->image);
+        $imageName = ImagesService::saveOne($this->diskName, $request->image);
 
-        $model = Employee::create([
+        Employee::create([
             'fio' => [
                 'ua' => $request->get('fio-ua'),
                 'en' => $request->get('fio-en'),

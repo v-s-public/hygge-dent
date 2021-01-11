@@ -1,6 +1,15 @@
+#data-table{
+    width: 100%; !important;
+}
+
 .actions{
     max-width: 71px; !important;
     width: 71px; !important;
+}
+
+.employees-grid-image{
+    max-width: 50px; !important;
+    width: 50px; !important;
 }
 
 .add-button-container{

@@ -55,7 +55,7 @@ return [
         'employees' => [
             'driver' => 'local',
             'root' => storage_path('app/public/images/employees'),
-            'url' => env('APP_URL').'/storage',
+            'url' => '/storage/images/employees',
             'visibility' => 'public',
             'permissions' => [
                 'file' => [

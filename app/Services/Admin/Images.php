@@ -21,6 +21,18 @@ class Images
         return $imageName;
     }
 
+    public function getOne(string $disk, string $fileName) : string
+    {
+        return Storage::disk($disk)->url($fileName);
+    }
+
+    /**
+     * Generate File Name
+     *
+     * @param string $disk
+     * @param UploadedFile $file
+     * @return string
+     */
     private function generateFileName(string $disk, UploadedFile $file) : string
     {
         return 'employee-' . time() . '.' . $file->extension();
