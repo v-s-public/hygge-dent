@@ -29,6 +29,9 @@ class Employee extends Model
         return ImagesService::getOne($this->diskName, $this->image);
     }
 
+    /**
+     * Delete Employee Image
+     */
     public function deleteImage()
     {
         ImagesService::deleteOne($this->diskName, $this->image);
