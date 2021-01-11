@@ -60,7 +60,7 @@ class EmployeesController extends Controller
                 return "<img src='{$url}' class='rounded-circle' width='50px'/>";
             })
             ->addColumn('actions', function($instance) use ($routePrefix, $actions, $primaryKey) {
-                return view('admin.actions.grid_actions', compact('instance', 'routePrefix', 'actions', 'primaryKey'));
+                return view('admin.common.actions.grid_actions', compact('instance', 'routePrefix', 'actions', 'primaryKey'));
             })
             ->rawColumns(['actions', 'image'])
             ->make(true);
@@ -148,10 +148,12 @@ class EmployeesController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function destroy($id)
+    public function destroy(int $id) : void
     {
-        //
+        $model = Employee::find($id);
+        $model->deleteImage();
+        $model->delete();
     }
 }

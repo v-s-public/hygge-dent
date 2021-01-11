@@ -1,5 +1,6 @@
 @extends('adminlte::page')
 @section('plugins.Datatables', true)
+@section('plugins.JqueryConfirm', true)
 @section('title', 'Сотрудники')
 
 @section('content')
@@ -37,6 +38,7 @@
 @stop
 
 @section('js')
+    @include('admin.common.js.confirm-delete-js')
     <script>
         $(document).ready(function () {
             $('#data-table').DataTable({
@@ -59,7 +61,13 @@
                     { "data": "image", "orderable": false, "targets": 0 },
                     { "data": "actions", "orderable": false, "targets": 0 },
                 ]
-            })
+            }).on('click', '.table-action-delete', function (e) {
+                e.preventDefault();
+                let url = $(this).attr('href');
+
+                // this function executes from included view 'admin.common.js.confirm-delete-js'
+                confirmDelete(url);
+            });
         });
     </script>
 @stop

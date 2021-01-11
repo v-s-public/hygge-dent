@@ -454,6 +454,21 @@ return [
                 ],
             ],
         ],
+        'JqueryConfirm' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/vendor/jquery-confirm/jquery-confirm.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/jquery-confirm/jquery-confirm.min.js',
+                ],
+            ],
+        ],
     ],
 
     /*

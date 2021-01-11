@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Storage;
 class Images
 {
     /**
-     * Save on file to disk
+     * Save one image to disk
      *
      * @param string $disk
      * @param UploadedFile $file
@@ -21,9 +21,27 @@ class Images
         return $imageName;
     }
 
+    /**
+     * Get one image from disk
+     *
+     * @param string $disk
+     * @param string $fileName
+     * @return string
+     */
     public function getOne(string $disk, string $fileName) : string
     {
         return Storage::disk($disk)->url($fileName);
+    }
+
+    /**
+     * Delete one image from disk
+     *
+     * @param string $disk
+     * @param string $fileName
+     */
+    public function deleteOne(string $disk, string $fileName)
+    {
+        Storage::disk($disk)->delete($fileName);
     }
 
     /**
