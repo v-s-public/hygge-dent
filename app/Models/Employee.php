@@ -14,9 +14,5 @@ class Employee extends Model
 
     public $translatable = ['fio', 'position', 'description'];
 
-    protected $fillable = ['fio', 'position', 'description'];
-
-    protected $attributes = [
-        'image' => 'image'
-    ];
+    protected $fillable = ['fio', 'position', 'description', 'image'];
 }

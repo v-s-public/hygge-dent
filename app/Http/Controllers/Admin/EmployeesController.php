@@ -10,6 +10,7 @@ use Yajra\DataTables\DataTables;
 use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
+use App\Facades\Admin\ImagesService;
 
 class EmployeesController extends Controller
 {
@@ -76,14 +77,9 @@ class EmployeesController extends Controller
      */
     public function store(EmployeeRequest $request) : RedirectResponse
     {
-        $imageName = 'employee-' . time().'.'.$request->image->extension();
-        $request->image->move(public_path('images'), $imageName);
+        $imageName = ImagesService::saveOne('employees', $request->image);
 
-        dd($imageName);
-
-        /* Store $imageName name in DATABASE from HERE */
-
-        Employee::create([
+        $model = Employee::create([
             'fio' => [
                 'ua' => $request->get('fio-ua'),
                 'en' => $request->get('fio-en'),
@@ -98,7 +94,8 @@ class EmployeesController extends Controller
                 'ua' => $request->get('description-ua'),
                 'en' => $request->get('description-en'),
                 'ru' => $request->get('description-ru')
-            ]
+            ],
+            'image' => $imageName
         ]);
 
         return redirect(route($this->routePrefix . '.index'));
