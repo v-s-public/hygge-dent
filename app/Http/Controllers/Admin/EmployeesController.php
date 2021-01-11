@@ -111,11 +111,14 @@ class EmployeesController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function show($id)
+    public function show(int $id) : View
     {
-        //
+        $model = Employee::find($id);
+        $routePrefix = $this->routePrefix;
+
+        return view($this->folderPrefix . '.show', compact('model', 'routePrefix'));
     }
 
     /**
