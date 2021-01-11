@@ -21,8 +21,8 @@
                             <tr>
                                 <th>Ф.И.О.</th>
                                 <th>Должность</th>
-                                <th class="employees-grid-image">Фото</th>
-                                <th class="actions">Действия</th>
+                                <th class="employees-grid-image-column">Фото</th>
+                                <th class="actions-column">Действия</th>
                             </tr>
                             </thead>
                         </table>

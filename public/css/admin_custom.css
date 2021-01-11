@@ -2,12 +2,12 @@
     width: 100%; !important;
 }
 
-.actions{
+.actions-column{
     max-width: 71px; !important;
     width: 71px; !important;
 }
 
-.employees-grid-image{
+.employees-grid-image-column{
     max-width: 50px; !important;
     width: 50px; !important;
 }
@@ -23,4 +23,10 @@
 span.error-help-block{
     color: #FF0000;
     font-size: 12px;
+}
+
+.employee-profile-img{
+    border: 3px solid #adb5bd;
+    margin: 0 auto;
+    padding: 3px;
 }
