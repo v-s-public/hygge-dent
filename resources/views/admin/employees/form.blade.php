@@ -1,5 +1,6 @@
 @section('plugins.JsValidation', true)
 @section('plugins.FileUploader', true)
+@section('plugins.RichText', true)
 <div class="row">
     <div class="col-6">
         <div class="form-group">
@@ -37,7 +38,7 @@
     <div class="col-4">
         <div class="form-group">
             <label for="description-ua">Описание (укр.)<span class="required-field-asterisk">*</span></label>
-            <textarea  class="form-control" id="description-ua" name="description-ua" cols="30" rows="7"></textarea>
+            <textarea  class="form-control rich-text-area" id="description-ua" name="description-ua" cols="30" rows="7"></textarea>
         </div>
     </div>
 
@@ -70,6 +71,7 @@
 </div>
 
 @section('js')
+    @include('admin.common.js.rich-text-options-object')
     {!! JsValidator::formRequest('App\Http\Requests\Admin\EmployeeRequest', '#form'); !!}
     <script>
         $(document).ready(function() {
@@ -84,5 +86,9 @@
                 }
             });
         });
+
+        $('#description-ua').richText(getRichTextOptions());
+        $('#description-en').richText(getRichTextOptions());
+        $('#description-ru').richText(getRichTextOptions());
     </script>
 @stop

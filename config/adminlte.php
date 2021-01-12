@@ -469,6 +469,21 @@ return [
                 ],
             ],
         ],
+        'RichText' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/vendor/rich-text/richtext.min.css',
+                ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/rich-text/richtext.min.js',
+                ],
+            ],
+        ],
     ],
 
     /*

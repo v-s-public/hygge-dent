@@ -39,9 +39,9 @@
                                 <div class="col-4"><strong>Рус:</strong></div>
                             </div>
                             <div class="row">
-                                <div class="col-4">{{ $model->getTranslation('description', 'ua') }}</div>
-                                <div class="col-4">{{ $model->getTranslation('description', 'en') }}</div>
-                                <div class="col-4">{{ $model->getTranslation('description', 'ru') }}</div>
+                                <div class="col-4">{!! $model->getTranslation('description', 'ua') !!}</div>
+                                <div class="col-4">{!! $model->getTranslation('description', 'en') !!}</div>
+                                <div class="col-4">{!! $model->getTranslation('description', 'ru') !!}</div>
                             </div>
                         </div>
                     </div>
