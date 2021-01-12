@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EmployeeRequest;
 use App\Models\Employee;
-use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
@@ -85,24 +84,7 @@ class EmployeesController extends Controller
     {
         $imageName = ImagesService::saveOne($this->diskName, $request->image);
 
-        Employee::create([
-            'fio' => [
-                'ua' => $request->get('fio-ua'),
-                'en' => $request->get('fio-en'),
-                'ru' => $request->get('fio-ru')
-            ],
-            'position' => [
-                'ua' => $request->get('position-ua'),
-                'en' => $request->get('position-en'),
-                'ru' => $request->get('position-ru')
-            ],
-            'description' => [
-                'ua' => $request->get('description-ua'),
-                'en' => $request->get('description-en'),
-                'ru' => $request->get('description-ru')
-            ],
-            'image' => $imageName
-        ]);
+        Employee::create($this->fillData($request, $imageName));
 
         return redirect(route($this->routePrefix . '.index'));
     }
@@ -125,23 +107,33 @@ class EmployeesController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return View
      */
-    public function edit($id)
+    public function edit(int $id) : View
     {
-        //
+        $model = Employee::find($id);
+        $routePrefix = $this->routePrefix;
+
+        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  EmployeeRequest  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(EmployeeRequest $request, int $id) : RedirectResponse
     {
-        //
+        $model = Employee::find($id);
+        $model->deleteImage();
+
+        $imageName = ImagesService::saveOne($this->diskName, $request->image);
+
+        $model->update($this->fillData($request, $imageName));
+
+        return redirect(route($this->routePrefix . '.index'));
     }
 
     /**
@@ -155,5 +147,34 @@ class EmployeesController extends Controller
         $model = Employee::find($id);
         $model->deleteImage();
         $model->delete();
+    }
+
+    /**
+     * Fill data for store/update actions
+     *
+     * @param EmployeeRequest $request
+     * @param string $imageName
+     * @return array
+     */
+    private function fillData(EmployeeRequest $request, string $imageName) : array
+    {
+        return [
+            'fio' => [
+                'ua' => $request->get('fio-ua'),
+                'en' => $request->get('fio-en'),
+                'ru' => $request->get('fio-ru')
+            ],
+            'position' => [
+                'ua' => $request->get('position-ua'),
+                'en' => $request->get('position-en'),
+                'ru' => $request->get('position-ru')
+            ],
+            'description' => [
+                'ua' => $request->get('description-ua'),
+                'en' => $request->get('description-en'),
+                'ru' => $request->get('description-ru')
+            ],
+            'image' => $imageName
+        ];
     }
 }
