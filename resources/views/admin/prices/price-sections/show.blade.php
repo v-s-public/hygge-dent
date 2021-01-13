@@ -13,14 +13,17 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6">
+                        <div class="col-12">
                             <h4>Раздел каталога цен:</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
                             <p><strong>Укр: </strong>{{ $model->getTranslation('price_section_name', 'ua') }}</p>
                             <p><strong>Англ: </strong>{{ $model->getTranslation('price_section_name', 'en') }}</p>
                             <p><strong>Рус: </strong>{{ $model->getTranslation('price_section_name', 'ru') }}</p>
                         </div>
                     </div>
-
                 </div>
                 <div class="card-footer">
                     <a href="{{ route($routePrefix . '.index') }}" class="btn btn-default">Назад</a>
