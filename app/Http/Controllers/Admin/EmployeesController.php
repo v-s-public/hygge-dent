@@ -58,8 +58,8 @@ class EmployeesController extends Controller
                 $url = ImagesService::getOne($diskName, $instance->image);
                 return "<img src='{$url}' class='rounded-circle' width='50px'/>";
             })
-            ->addColumn('actions', function($instance) use ($routePrefix, $actions, $primaryKey) {
-                return view('admin.common.actions.grid_actions', compact('instance', 'routePrefix', 'actions', 'primaryKey'));
+            ->addColumn('actions', function($model) use ($routePrefix, $actions, $primaryKey) {
+                return view('admin.common.actions.grid_actions', compact('model', 'routePrefix', 'actions', 'primaryKey'));
             })
             ->rawColumns(['actions', 'image'])
             ->make(true);

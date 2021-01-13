@@ -49,8 +49,8 @@ class PricePositionsController extends Controller
             ->addColumn('price_section_name', function($model) {
                 return $model->priceSection->price_section_name;
             })
-            ->addColumn('actions', function($instance) use ($routePrefix, $actions, $primaryKey) {
-                return view('admin.common.actions.grid_actions', compact('instance', 'routePrefix', 'actions', 'primaryKey'));
+            ->addColumn('actions', function($model) use ($routePrefix, $actions, $primaryKey) {
+                return view('admin.common.actions.grid_actions', compact('model', 'routePrefix', 'actions', 'primaryKey'));
             })
             ->rawColumns(['actions'])
             ->make(true);
