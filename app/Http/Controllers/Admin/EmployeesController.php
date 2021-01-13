@@ -160,19 +160,19 @@ class EmployeesController extends Controller
     {
         return [
             'fio' => [
-                'ua' => $request->get('fio-ua'),
-                'en' => $request->get('fio-en'),
+                'ua' => $request->get('fio_ua'),
+                'en' => $request->get('fio_en'),
                 'ru' => $request->get('fio-ru')
             ],
             'position' => [
-                'ua' => $request->get('position-ua'),
-                'en' => $request->get('position-en'),
-                'ru' => $request->get('position-ru')
+                'ua' => $request->get('position_ua'),
+                'en' => $request->get('position_en'),
+                'ru' => $request->get('position_ru')
             ],
             'description' => [
-                'ua' => $request->get('description-ua'),
-                'en' => $request->get('description-en'),
-                'ru' => $request->get('description-ru')
+                'ua' => $request->get('description_ua'),
+                'en' => $request->get('description_en'),
+                'ru' => $request->get('description_ru')
             ],
             'image' => $imageName
         ];

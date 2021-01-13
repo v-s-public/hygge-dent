@@ -24,33 +24,33 @@ class EmployeeRequest extends FormRequest
     public function rules()
     {
         return [
-            'fio-ua' => [
+            'fio_ua' => [
                 'required'
             ],
-            'fio-en' => [
+            'fio_en' => [
                 'required'
             ],
-            'fio-ru' => [
+            'fio_ru' => [
                 'required'
             ],
 
-            'position-ua' => [
-                'required_with:position-en,position-ru'
+            'position_ua' => [
+                'required_with:position_en,position_ru'
             ],
-            'position-en' => [
-                'required_with:position-ua,position-ru'
+            'position_en' => [
+                'required_with:position_ua,position_ru'
             ],
-            'position-ru' => [
-                'required_with:position-ua,position-en'
+            'position_ru' => [
+                'required_with:position_ua,position_en'
             ],
 
-            'description-ua' => [
+            'description_ua' => [
                 'required'
             ],
-            'description-en' => [
+            'description_en' => [
                 'required'
             ],
-            'description-ru' => [
+            'description_ru' => [
                 'required'
             ],
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -66,17 +66,17 @@ class EmployeeRequest extends FormRequest
     public function messages()
     {
         return [
-            'fio-ua.required' => 'Поле является обязательным для заполения.',
-            'fio-en.required' => 'Поле является обязательным для заполения.',
-            'fio-ru.required' => 'Поле является обязательным для заполения.',
+            'fio_ua.required' => 'Поле является обязательным для заполения.',
+            'fio_en.required' => 'Поле является обязательным для заполения.',
+            'fio_ru.required' => 'Поле является обязательным для заполения.',
 
-            'position-ua.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Англ. или Рус.) заполнено.',
-            'position-en.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Укр. или Рус.) заполнено.',
-            'position-ru.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Укр. или Англ.) заполнено.',
+            'position_ua.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Англ. или Рус.) заполнено.',
+            'position_en.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Укр. или Рус.) заполнено.',
+            'position_ru.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Укр. или Англ.) заполнено.',
 
-            'description-ua.required' => 'Поле является обязательным для заполения.',
-            'description-en.required' => 'Поле является обязательным для заполения.',
-            'description-ru.required' => 'Поле является обязательным для заполения.',
+            'description_ua.required' => 'Поле является обязательным для заполения.',
+            'description_en.required' => 'Поле является обязательным для заполения.',
+            'description_ru.required' => 'Поле является обязательным для заполения.',
 
             'image.required' => 'Поле является обязательным для заполения.',
         ];

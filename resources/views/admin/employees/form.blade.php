@@ -4,30 +4,30 @@
 <div class="row">
     <div class="col-6">
         <div class="form-group">
-            <label for="fio-ua">Ф.И.О. (укр.)<span class="required-field-asterisk">*</span></label>
-            <input type="text" class="form-control" id="fio-ua" name="fio-ua" value="{{ isset($model) ? $model->getTranslation('fio', 'ua') : '' }}">
+            <label for="fio_ua">Ф.И.О. (укр.)<span class="required-field-asterisk">*</span></label>
+            <input type="text" class="form-control" id="fio_ua" name="fio_ua" value="{{ isset($model) ? $model->getTranslation('fio', 'ua') : '' }}">
         </div>
         <div class="form-group">
-            <label for="fio-en">Ф.И.О. (англ.)<span class="required-field-asterisk">*</span></label>
-            <input type="text" class="form-control" id="fio-en" name="fio-en" value="{{ isset($model) ? $model->getTranslation('fio', 'en') : '' }}">
+            <label for="fio_en">Ф.И.О. (англ.)<span class="required-field-asterisk">*</span></label>
+            <input type="text" class="form-control" id="fio_en" name="fio_en" value="{{ isset($model) ? $model->getTranslation('fio', 'en') : '' }}">
         </div>
         <div class="form-group">
-            <label for="fio-ru">Ф.И.О. (рус.)<span class="required-field-asterisk">*</span></label>
-            <input type="text" class="form-control" id="fio-ru" name="fio-ru" value="{{ isset($model) ? $model->getTranslation('fio', 'ru') : '' }}">
+            <label for="fio_ru">Ф.И.О. (рус.)<span class="required-field-asterisk">*</span></label>
+            <input type="text" class="form-control" id="fio_ru" name="fio_ru" value="{{ isset($model) ? $model->getTranslation('fio', 'ru') : '' }}">
         </div>
     </div>
     <div class="col-6">
         <div class="form-group">
-            <label for="position-ua">Должность (укр.)</label>
-            <input type="text" class="form-control" id="position-ua" name="position-ua" value="{{ isset($model) ? $model->getTranslation('position', 'ua') : '' }}">
+            <label for="position_ua">Должность (укр.)</label>
+            <input type="text" class="form-control" id="position_ua" name="position_ua" value="{{ isset($model) ? $model->getTranslation('position', 'ua') : '' }}">
         </div>
         <div class="form-group">
-            <label for="position-en">Должность (англ.)</label>
-            <input type="text" class="form-control" id="position-en" name="position-en" value="{{ isset($model) ? $model->getTranslation('position', 'en') : '' }}">
+            <label for="position_en">Должность (англ.)</label>
+            <input type="text" class="form-control" id="position_en" name="position_en" value="{{ isset($model) ? $model->getTranslation('position', 'en') : '' }}">
         </div>
         <div class="form-group">
-            <label for="position-ru">Должность (рус.)</label>
-            <input type="text" class="form-control" id="position-ru" name="position-ru" value="{{ isset($model) ? $model->getTranslation('position', 'ru') : '' }}">
+            <label for="position_ru">Должность (рус.)</label>
+            <input type="text" class="form-control" id="position_ru" name="position_ru" value="{{ isset($model) ? $model->getTranslation('position', 'ru') : '' }}">
         </div>
     </div>
 </div>
@@ -37,22 +37,22 @@
 <div class="row">
     <div class="col-4">
         <div class="form-group">
-            <label for="description-ua">Описание (укр.)<span class="required-field-asterisk">*</span></label>
-            <textarea  class="form-control rich-text-area" id="description-ua" name="description-ua" cols="30" rows="7">{{ isset($model) ? $model->getTranslation('description', 'ua') : '' }}</textarea>
+            <label for="description_ua">Описание (укр.)<span class="required-field-asterisk">*</span></label>
+            <textarea  class="form-control rich-text-area" id="description_ua" name="description_ua" cols="30" rows="7">{{ isset($model) ? $model->getTranslation('description', 'ua') : '' }}</textarea>
         </div>
     </div>
 
     <div class="col-4">
         <div class="form-group">
-            <label for="description-en">Описание (англ.)<span class="required-field-asterisk">*</span></label>
-            <textarea  class="form-control" id="description-en" name="description-en" cols="30" rows="7">{{ isset($model) ? $model->getTranslation('description', 'en') : '' }}</textarea>
+            <label for="description_en">Описание (англ.)<span class="required-field-asterisk">*</span></label>
+            <textarea  class="form-control" id="description_en" name="description_en" cols="30" rows="7">{{ isset($model) ? $model->getTranslation('description', 'en') : '' }}</textarea>
         </div>
     </div>
 
     <div class="col-4">
         <div class="form-group">
-            <label for="description-ru">Описание (рус.)<span class="required-field-asterisk">*</span></label>
-            <textarea  class="form-control" id="description-ru" name="description-ru" cols="30" rows="7">{{ isset($model) ? $model->getTranslation('description', 'ru') : '' }}</textarea>
+            <label for="description_ru">Описание (рус.)<span class="required-field-asterisk">*</span></label>
+            <textarea  class="form-control" id="description_ru" name="description_ru" cols="30" rows="7">{{ isset($model) ? $model->getTranslation('description', 'ru') : '' }}</textarea>
         </div>
     </div>
 </div>
@@ -83,8 +83,8 @@
             $("#image").fileinput(getFileInputOptions(isUpdateAction, imageUrl, caption));
         });
 
-        $('#description-ua').richText(getRichTextOptions());
-        $('#description-en').richText(getRichTextOptions());
-        $('#description-ru').richText(getRichTextOptions());
+        $('#description_ua').richText(getRichTextOptions());
+        $('#description_en').richText(getRichTextOptions());
+        $('#description_ru').richText(getRichTextOptions());
     </script>
 @stop
