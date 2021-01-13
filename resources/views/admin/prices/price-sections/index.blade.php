@@ -62,7 +62,7 @@
                 let url = $(this).attr('href');
 
                 // this function executes from included view 'admin.common.js.confirm-delete-js'
-                let message = 'Вы уверены, что хотите удалить раздел? ВНИМАНИЕ! Это действие приведёт к уралению всех позиций этого раздела!'
+                let message = 'Вы уверены, что хотите удалить раздел? ВНИМАНИЕ! Это действие приведёт к удалению всех позиций этого раздела!'
                 confirmDelete(url, message);
             });
         });
