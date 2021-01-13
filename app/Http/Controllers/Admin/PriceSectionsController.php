@@ -10,7 +10,7 @@ use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
-class PriceSectionController extends Controller
+class PriceSectionsController extends Controller
 {
     use Locale;
 

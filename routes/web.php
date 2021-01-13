@@ -36,8 +36,8 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         Route::get('employees/list/all', [App\Http\Controllers\Admin\EmployeesController::class, 'employeesList'])->name('employees.list');
 
         Route::prefix('prices')->name('prices.')->group(function () {
-            Route::resource('price-sections', App\Http\Controllers\Admin\PriceSectionController::class);
-            Route::get('price-sections/list/all', [App\Http\Controllers\Admin\PriceSectionController::class, 'resourceList'])->name('price-sections.list');
+            Route::resource('price-sections', App\Http\Controllers\Admin\PriceSectionsController::class);
+            Route::get('price-sections/list/all', [App\Http\Controllers\Admin\PriceSectionsController::class, 'resourceList'])->name('price-sections.list');
         });
 
     });
