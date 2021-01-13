@@ -29,7 +29,7 @@ class PriceSectionsController extends Controller
     }
 
     /**
-     * Returns JSON with all Employee entities
+     * Returns JSON with all Price Section entities
      *
      * @return mixed
      * @throws \Exception
