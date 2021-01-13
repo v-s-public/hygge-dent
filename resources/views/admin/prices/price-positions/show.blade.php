@@ -8,15 +8,10 @@
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <i class="fas fa-list"></i> Раздел каталога
+                        <i class="fas fa-list"></i> Позиция каталога
                     </h3>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <h4>Позиция каталога цен:</h4>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-6">
                             <p><strong>Укр: </strong>{{ $model->getTranslation('price_position_name', 'ua') }}</p>
