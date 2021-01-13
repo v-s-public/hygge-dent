@@ -33,7 +33,7 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
         Route::resource('employees', App\Http\Controllers\Admin\EmployeesController::class);
-        Route::get('employees/list/all', [App\Http\Controllers\Admin\EmployeesController::class, 'employeesList'])->name('employees.list');
+        Route::get('employees/list/all', [App\Http\Controllers\Admin\EmployeesController::class, 'resourceList'])->name('employees.list');
 
         Route::prefix('prices')->name('prices.')->group(function () {
             Route::resource('price-sections', App\Http\Controllers\Admin\PriceSectionsController::class);

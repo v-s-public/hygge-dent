@@ -36,7 +36,7 @@ class EmployeesController extends Controller
      * @return mixed
      * @throws \Exception
      */
-    public function employeesList()
+    public function resourceList()
     {
         $model = Employee::all();
         $routePrefix = $this->routePrefix;
