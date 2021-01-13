@@ -24,9 +24,7 @@ class PriceSectionRequest extends FormRequest
     public function rules()
     {
         return [
-            'price_section_name_ua' => 'required',
-            'price_section_name_en' => 'required',
-            'price_section_name_ru' => 'required'
+            'price_section_name.*' => 'required',
         ];
     }
 
@@ -38,9 +36,7 @@ class PriceSectionRequest extends FormRequest
     public function messages()
     {
         return [
-            'price_section_name_ua.required' => 'Поле является обязательным для заполения.',
-            'price_section_name_en.required' => 'Поле является обязательным для заполения.',
-            'price_section_name_ru.required' => 'Поле является обязательным для заполения.',
+            'price_section_name.*.required' => 'Поле является обязательным для заполения.',
         ];
     }
 }

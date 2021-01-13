@@ -5,14 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PriceSectionRequest;
 use App\Models\PriceSection;
+use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
-use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class PriceSectionsController extends Controller
 {
-    use Locale;
+    use Translation;
 
     protected string $folderPrefix = 'admin.prices.price-sections';
     protected string $routePrefix = 'admin.prices.price-sections';
@@ -60,7 +60,8 @@ class PriceSectionsController extends Controller
     public function create() : View
     {
         $routePrefix = $this->routePrefix;
-        return view($this->folderPrefix . '.create', compact('routePrefix'));
+        $activeLanguages = $this->activeLanguages;
+        return view($this->folderPrefix . '.create', compact('routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -84,8 +85,9 @@ class PriceSectionsController extends Controller
     {
         $model = PriceSection::find($id);
         $routePrefix = $this->routePrefix;
+        $activeLanguages = $this->activeLanguages;
 
-        return view($this->folderPrefix . '.show', compact('model', 'routePrefix'));
+        return view($this->folderPrefix . '.show', compact('model', 'routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -98,8 +100,9 @@ class PriceSectionsController extends Controller
     {
         $model = PriceSection::find($id);
         $routePrefix = $this->routePrefix;
+        $activeLanguages = $this->activeLanguages;
 
-        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix'));
+        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -136,11 +139,8 @@ class PriceSectionsController extends Controller
     private function fillData(PriceSectionRequest $request) : array
     {
         return [
-            'price_section_name' => [
-                'ua' => $request->get('price_section_name_ua'),
-                'en' => $request->get('price_section_name_en'),
-                'ru' => $request->get('price_section_name_ru')
-            ]
+            'price_section_name' =>
+                $this->prepareTranslatesForInsertByFieldName($request, 'price_section_name')
         ];
     }
 }
