@@ -1,8 +1,8 @@
 <script>
-    function confirmDelete(url) {
+    function confirmDelete(url, message = 'Вы уверены, что хотите удалить запись?') {
         $.confirm({
             title: 'Подтвердите действие',
-            content: 'Вы уверены, что хотите удалить запись?',
+            content: message,
             buttons: {
                 да: function () {
                     $.ajax({
