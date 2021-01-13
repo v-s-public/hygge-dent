@@ -38,6 +38,9 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         Route::prefix('prices')->name('prices.')->group(function () {
             Route::resource('price-sections', App\Http\Controllers\Admin\PriceSectionsController::class);
             Route::get('price-sections/list/all', [App\Http\Controllers\Admin\PriceSectionsController::class, 'resourceList'])->name('price-sections.list');
+
+            Route::resource('price-positions', App\Http\Controllers\Admin\PricePositionsController::class);
+            Route::get('price-positions/list/all', [App\Http\Controllers\Admin\PricePositionsController::class, 'resourceList'])->name('price-positions.list');
         });
 
     });

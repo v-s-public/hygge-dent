@@ -266,6 +266,7 @@ return [
         [
             'text'    => 'Цены',
             'icon'    => 'fas fa-fw fa-money-bill-wave',
+            'active' => ['prices/*'],
             'submenu' => [
                 [
                     'text' => 'Разделы каталога цен',
@@ -274,8 +275,10 @@ return [
                     'active' => ['prices/price-sections/*']
                 ],
                 [
-                    'text' => 'level_one',
-                    'url'  => '#',
+                    'text' => 'Позиции каталога цен',
+                    'route'  => 'admin.prices.price-positions.index',
+                    'icon' => 'fas fa-fw fa-list',
+                    'active' => ['prices/price-positions/*']
                 ],
             ],
         ],

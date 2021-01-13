@@ -18,6 +18,6 @@ class PriceSection extends Model
 
     public function pricePositions()
     {
-        return $this->hasMany(Price::class, 'price_section_id');
+        return $this->hasMany(PricePosition::class, 'price_section_id');
     }
 }
