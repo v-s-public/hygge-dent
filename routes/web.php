@@ -43,6 +43,11 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
             Route::get('price-positions/list/all', [App\Http\Controllers\Admin\PricePositionsController::class, 'resourceList'])->name('price-positions.list');
         });
 
+        Route::prefix('settings')->name('settings.')->group(function () {
+            Route::get('languages', [App\Http\Controllers\Admin\LanguagesController::class, 'index'])->name('languages');
+            Route::post('languages/toggle-status', [App\Http\Controllers\Admin\LanguagesController::class, 'toggleStatus'])->name('languages.toggle-status');
+        });
+
     });
 });
 

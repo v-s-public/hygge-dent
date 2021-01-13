@@ -248,21 +248,6 @@ return [
             'icon' => 'fas fa-fw fa-users',
             'active' => ['employees/*']
         ],
-//        [
-//            'text' => 'Новости',
-//            'url'  => '*',
-//            'icon' => 'fas fa-fw fa-newspaper',
-//        ],
-//        [
-//            'text' => 'Цены',
-//            'url'  => '*',
-//            'icon' => 'fas fa-fw fa-hryvnia',
-//        ],
-//        [
-//            'text' => 'change_password',
-//            'url'  => 'admin/settings',
-//            'icon' => 'fas fa-fw fa-lock',
-//        ],
         [
             'text'    => 'Цены',
             'icon'    => 'fas fa-fw fa-money-bill-wave',
@@ -281,6 +266,13 @@ return [
                     'active' => ['prices/price-positions/*']
                 ],
             ],
+        ],
+        ['header' => 'Настройки'],
+        [
+            'text' => 'Языки',
+            'route'  => 'admin.settings.languages',
+            'icon' => 'fas fa-fw fa-globe-europe',
+            //'active' => ['employees/*']
         ],
 //        ['header' => 'labels'],
 //        [
@@ -462,6 +454,16 @@ return [
                     'type' => 'js',
                     'asset' => false,
                     'location' => '/vendor/rich-text/richtext.min.js',
+                ],
+            ],
+        ],
+        'Switcher' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/bootstrap-switch/bootstrap-switch.min.js',
                 ],
             ],
         ],
