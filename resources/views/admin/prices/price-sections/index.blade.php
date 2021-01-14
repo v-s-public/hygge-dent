@@ -6,6 +6,10 @@
 @section('content')
     <div class="row">
         <div class="col-12">
+            <div class="callout callout-danger">
+                <h5>ВНИМАНИЕ!</h5>
+                <p>Удаление какого-либо раздела каталога цен приведёт к тому, что будут удалены все позиции каталога, которые относятся к этому разделу!
+            </div>
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h3 class="card-title">
