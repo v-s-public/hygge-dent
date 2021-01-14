@@ -6,14 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PricePositionRequest;
 use App\Models\PriceSection;
 use App\Models\PricePosition;
+use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
-use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 
 class PricePositionsController extends Controller
 {
-    use Locale;
+    use Translation;
 
     protected string $folderPrefix = 'admin.prices.price-positions';
     protected string $routePrefix = 'admin.prices.price-positions';
@@ -65,7 +65,8 @@ class PricePositionsController extends Controller
     {
         $routePrefix = $this->routePrefix;
         $sections = PriceSection::all();
-        return view($this->folderPrefix . '.create', compact('routePrefix', 'sections'));
+        $activeLanguages = $this->activeLanguages;
+        return view($this->folderPrefix . '.create', compact('routePrefix', 'sections', 'activeLanguages'));
     }
 
     /**
@@ -89,8 +90,9 @@ class PricePositionsController extends Controller
     {
         $model = PricePosition::find($id);
         $routePrefix = $this->routePrefix;
+        $activeLanguages = $this->activeLanguages;
 
-        return view($this->folderPrefix . '.show', compact('model', 'routePrefix'));
+        return view($this->folderPrefix . '.show', compact('model', 'routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -104,8 +106,9 @@ class PricePositionsController extends Controller
         $model = PricePosition::find($id);
         $routePrefix = $this->routePrefix;
         $sections = PriceSection::all();
+        $activeLanguages = $this->activeLanguages;
 
-        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix', 'sections'));
+        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix', 'sections', 'activeLanguages'));
     }
 
     /**
@@ -142,11 +145,7 @@ class PricePositionsController extends Controller
     private function fillData(PricePositionRequest $request) : array
     {
         return [
-            'price_position_name' => [
-                'ua' => $request->get('price_position_name_ua'),
-                'en' => $request->get('price_position_name_en'),
-                'ru' => $request->get('price_position_name_ru')
-            ],
+            'price_position_name' => $this->prepareTranslatesForInsertByFieldName($request, 'price_position_name'),
             'price' => $request->get('price'),
             'price_section_id' => $request->get('price_section_id'),
         ];

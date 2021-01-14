@@ -12,17 +12,37 @@
                     </h3>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-6">
-                            <p><strong>Укр: </strong>{{ $model->getTranslation('price_position_name', 'ua') }}</p>
-                            <p><strong>Англ: </strong>{{ $model->getTranslation('price_position_name', 'en') }}</p>
-                            <p><strong>Рус: </strong>{{ $model->getTranslation('price_position_name', 'ru') }}</p>
-                        </div>
-                        <div class="col-6">
-                            <p><strong>Раздел каталога: </strong>{{ $model->priceSection->price_section_name }}</p>
-                            <p><strong>Цена: </strong>{{ $model->price }} грн.</p>
-                        </div>
-                    </div>
+                    <table class="table table-condensed">
+                        <thead>
+                        <tr>
+                            <th style="width: 150px">Язык</th>
+                            <th>Наименование позиции</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @foreach($activeLanguages as $language)
+                            <tr>
+                                <td><strong>{{ $language->language_name }}: </strong></td>
+                                <td>{{ $model->getTranslation('price_position_name', $language->language_locale_id) }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <hr>
+                    <table class="table table-condensed">
+                        <tbody>
+
+                            <tr>
+                                <td style="width: 150px"><strong>Раздел каталога: </strong></td>
+                                <td>{{ $model->priceSection->price_section_name }}</td>
+                            </tr>
+                            <tr>
+                                <td style="width: 150px"><strong>Цена: </strong></td>
+                                <td>{{ $model->price }} грн.</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route($routePrefix . '.index') }}" class="btn btn-default">Назад</a>

@@ -1,19 +1,12 @@
 @section('plugins.JsValidation', true)
 <div class="row">
     <div class="col-12">
-        <div class="form-group">
-            <label for="price_position_name_ua">Наименование позиции (укр.)<span class="required-field-asterisk">*</span></label>
-            <input type="text" class="form-control" id="price_position_name_ua" name="price_position_name_ua" value="{{ isset($model) ? $model->getTranslation('price_position_name', 'ua') : '' }}">
-        </div>
-        <div class="form-group">
-            <label for="price_section_name_en">Наименование позиции (англ.)<span class="required-field-asterisk">*</span></label>
-            <input type="text" class="form-control" id="price_position_name_en" name="price_position_name_en" value="{{ isset($model) ? $model->getTranslation('price_position_name', 'en') : '' }}">
-        </div>
-        <div class="form-group">
-            <label for="price_section_name_ru">Наименование позиции (рус.)<span class="required-field-asterisk">*</span></label>
-            <input type="text" class="form-control" id="price_position_name_ru" name="price_position_name_ru" value="{{ isset($model) ? $model->getTranslation('price_position_name', 'ru') : '' }}">
-        </div>
-
+        @foreach($activeLanguages as $language)
+            <div class="form-group">
+                <label for="price_position_name_{{ $language->language_locale_id }}">Наименование позиции ({{ $language->language_label }}.)<span class="required-field-asterisk">*</span></label>
+                <input type="text" class="form-control" id="price_position_name_{{ $language->language_locale_id }}" name="price_position_name[{{ $language->language_locale_id }}]" value="{{ isset($model) ? $model->getTranslation('price_position_name', $language->language_locale_id) : '' }}">
+            </div>
+        @endforeach
         <div class="row">
             <div class="col-6">
                 <div class="form-group">
