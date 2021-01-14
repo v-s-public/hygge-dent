@@ -20,15 +20,11 @@
                 <div class="col-6">
                     <h4 style="display: inline-block">Lang switcher:</h4>
                     <ul class="lang-switcher">
-                        <li>
-                            <a class="nav-link" href="{{ route('locale', ['locale' => 'en']) }}">EN</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('locale', ['locale' => 'ru']) }}">RU</a>
-                        </li>
-                        <li>
-                            <a class="nav-link" href="{{ route('locale', ['locale' => 'ua']) }}">UA</a>
-                        </li>
+                        @foreach($activeLanguages as $language)
+                            <li>
+                                <a class="nav-link" href="{{ route('locale', ['locale' => $language->language_locale_id]) }}">{{ strtoupper($language->language_locale_id) }}</a>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
