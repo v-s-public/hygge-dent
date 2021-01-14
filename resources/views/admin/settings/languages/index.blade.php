@@ -7,10 +7,8 @@
 @section('content')
     <div class="row">
         <div class="col-12">
-
             <div class="callout callout-danger">
                 <h5>ВНИМАНИЕ!</h5>
-
                 <p>Отключение языка приведёт к тому, что:
                     <ul>
                     <li>контент на этом языке перестанет отображаться в публичной части сайта;</li>
@@ -18,10 +16,8 @@
                     <li>изчезнут поля для заполнения для этого языка в административной части сайта.</li>
                     </ul>
                 </p>
-
-                <p>НЕ ОТКЛЮЧАЙТЕ ВСЕ ЯЗЫКИ!</p>
+                <p>Украинский и русский языки включены всегда.</p>
             </div>
-
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h3 class="card-title">

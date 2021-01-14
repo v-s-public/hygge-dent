@@ -15,7 +15,6 @@ class HomeController extends Controller
      */
     public function index() : View
     {
-        app()->setLocale('ru');
         $employees = Employee::all();
         $activeLanguages = Language::where('language_status', true)->get();
         return view('frontend.home', compact('employees', 'activeLanguages'));

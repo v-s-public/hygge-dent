@@ -20,6 +20,7 @@ class CreateSettingsLanguagesTable extends Migration
             $table->string('language_locale_id', 2);
             $table->string('language_flag_image');
             $table->boolean('language_status');
+            $table->boolean('default_language')->default(false);
             $table->timestamps();
         });
     }
