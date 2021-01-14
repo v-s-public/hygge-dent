@@ -28,13 +28,6 @@
                                 @endforeach
                             </tbody>
                     </table>
-
-
-                    <div class="row">
-                        <div class="col-12">
-
-                        </div>
-                    </div>
                 </div>
                 <div class="card-footer">
                     <a href="{{ route($routePrefix . '.index') }}" class="btn btn-default">Назад</a>
