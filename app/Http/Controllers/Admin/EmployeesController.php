@@ -5,15 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EmployeeRequest;
 use App\Models\Employee;
+use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
-use App\Traits\Locale;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use App\Facades\Admin\ImagesService;
 
 class EmployeesController extends Controller
 {
-    use Locale;
+    use Translation;
 
     protected string $folderPrefix = 'admin.employees';
     protected string $routePrefix = 'admin.employees';
@@ -73,7 +73,9 @@ class EmployeesController extends Controller
     public function create() : View
     {
         $routePrefix = $this->routePrefix;
-        return view($this->folderPrefix . '.create', compact('routePrefix'));
+        $activeLanguages = $this->activeLanguages;
+
+        return view($this->folderPrefix . '.create', compact('routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -99,8 +101,9 @@ class EmployeesController extends Controller
     {
         $model = Employee::find($id);
         $routePrefix = $this->routePrefix;
+        $activeLanguages = $this->activeLanguages;
 
-        return view($this->folderPrefix . '.show', compact('model', 'routePrefix'));
+        return view($this->folderPrefix . '.show', compact('model', 'routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -113,8 +116,9 @@ class EmployeesController extends Controller
     {
         $model = Employee::find($id);
         $routePrefix = $this->routePrefix;
+        $activeLanguages = $this->activeLanguages;
 
-        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix'));
+        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix', 'activeLanguages'));
     }
 
     /**
@@ -159,21 +163,9 @@ class EmployeesController extends Controller
     private function fillData(EmployeeRequest $request, string $imageName) : array
     {
         return [
-            'fio' => [
-                'ua' => $request->get('fio_ua'),
-                'en' => $request->get('fio_en'),
-                'ru' => $request->get('fio-ru')
-            ],
-            'position' => [
-                'ua' => $request->get('position_ua'),
-                'en' => $request->get('position_en'),
-                'ru' => $request->get('position_ru')
-            ],
-            'description' => [
-                'ua' => $request->get('description_ua'),
-                'en' => $request->get('description_en'),
-                'ru' => $request->get('description_ru')
-            ],
+            'fio' =>$this->prepareTranslatesForInsertByFieldName($request, 'fio'),
+            'position' => $this->prepareTranslatesForInsertByFieldName($request, 'position'),
+            'description' => $this->prepareTranslatesForInsertByFieldName($request, 'description'),
             'image' => $imageName
         ];
     }

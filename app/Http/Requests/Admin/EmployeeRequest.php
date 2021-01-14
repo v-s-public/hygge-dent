@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Admin;
 
+use App\Models\Language;
 use Illuminate\Foundation\Http\FormRequest;
 
 class EmployeeRequest extends FormRequest
@@ -23,39 +24,14 @@ class EmployeeRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'fio_ua' => [
-                'required'
-            ],
-            'fio_en' => [
-                'required'
-            ],
-            'fio_ru' => [
-                'required'
-            ],
-
-            'position_ua' => [
-                'required_with:position_en,position_ru'
-            ],
-            'position_en' => [
-                'required_with:position_ua,position_ru'
-            ],
-            'position_ru' => [
-                'required_with:position_ua,position_en'
-            ],
-
-            'description_ua' => [
-                'required'
-            ],
-            'description_en' => [
-                'required'
-            ],
-            'description_ru' => [
-                'required'
-            ],
+        $positionRules = $this->preparePositionRules();
+        $rules = [
+            'fio.*' => 'required',
+            'description.*' => 'required',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-
         ];
+
+        return array_merge($positionRules, $rules);
     }
 
     /**
@@ -66,19 +42,60 @@ class EmployeeRequest extends FormRequest
     public function messages()
     {
         return [
-            'fio_ua.required' => 'Поле является обязательным для заполения.',
-            'fio_en.required' => 'Поле является обязательным для заполения.',
-            'fio_ru.required' => 'Поле является обязательным для заполения.',
-
-            'position_ua.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Англ. или Рус.) заполнено.',
-            'position_en.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Укр. или Рус.) заполнено.',
-            'position_ru.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для Укр. или Англ.) заполнено.',
-
-            'description_ua.required' => 'Поле является обязательным для заполения.',
-            'description_en.required' => 'Поле является обязательным для заполения.',
-            'description_ru.required' => 'Поле является обязательным для заполения.',
-
+            'fio.*.required' => 'Поле является обязательным для заполения.',
+            'position.*.required_with' => 'Поле является обязательным для заполения, если хотя бы одно поле "Должность" (для любого языка) заполнено.',
+            'description.*.required' => 'Поле является обязательным для заполения.',
             'image.required' => 'Поле является обязательным для заполения.',
         ];
+    }
+
+    /**
+     * Preparing rules for translatable 'position' field. Like this:
+     *   "position.ua" => "required_with:position.en,position.ru"
+     *   "position.en" => "required_with:position.ua,position.ru"
+     *   "position.ru" => "required_with:position.ua,position.en"
+     *
+     * @return array
+     */
+    private function preparePositionRules() : array
+    {
+        $rules = [];
+        $activeLanguagesLocaleIds = Language::getActiveLanguagesLocaleIds();
+
+        foreach ($activeLanguagesLocaleIds as $key => $localeId) {
+            $localesExceptCurrentLoopLocale = ($this->getLocalesExceptCurrentLoopLocale($key, $activeLanguagesLocaleIds));
+            $rules['position.' . $localeId] = 'required_with:' . $this->buildRule($localesExceptCurrentLoopLocale);
+        }
+
+        return $rules;
+    }
+
+    /**
+     * Returns locales array without current loop locale
+     *
+     * @param $key
+     * @param $locales
+     * @return array
+     */
+    private function getLocalesExceptCurrentLoopLocale($key, $locales) : array
+    {
+        unset($locales[$key]);
+        return $locales;
+    }
+
+    /**
+     * Returns rule string for validator 'required_with'
+     *
+     * @param $localesExceptCurrentLoopLocale
+     * @return string
+     */
+    private function buildRule($localesExceptCurrentLoopLocale) : string
+    {
+        $rules = [];
+        foreach ($localesExceptCurrentLoopLocale as $locale) {
+            $rules[] = 'position.' . $locale;
+        }
+        $rules = implode(',', $rules);
+        return $rules;
     }
 }

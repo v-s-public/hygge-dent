@@ -44,4 +44,14 @@ class Language extends Model
     {
         return self::where('language_status', true)->get();
     }
+
+    /**
+     * Get Active Languages Locale Ids
+     *
+     * @return array
+     */
+    public static function getActiveLanguagesLocaleIds() : array
+    {
+        return self::where('language_status', true)->pluck('language_locale_id')->toArray();
+    }
 }

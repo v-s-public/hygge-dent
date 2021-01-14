@@ -18,34 +18,51 @@
                         </div>
                         <div class="col-10">
                             <div class="row">
-                                <div class="col-6">
-                                    <h4>Ф.И.О.:</h4>
-                                    <p><strong>Укр: </strong>{{ $model->getTranslation('fio', 'ua') }}</p>
-                                    <p><strong>Англ: </strong>{{ $model->getTranslation('fio', 'en') }}</p>
-                                    <p><strong>Рус: </strong>{{ $model->getTranslation('fio', 'ru') }}</p>
-                                </div>
-                                <div class="col-6">
-                                    <h4>Должность:</h4>
-                                    <p><strong>Укр: </strong>{{ $model->getTranslation('position', 'ua') }}</p>
-                                    <p><strong>Англ: </strong>{{ $model->getTranslation('position', 'en') }}</p>
-                                    <p><strong>Рус: </strong>{{ $model->getTranslation('position', 'ru') }}</p>
+                                <div class="col-12">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                        <tr>
+                                            <th style="width: 150px">Язык</th>
+                                            <th>Ф.И.О.</th>
+                                            <th>Должность</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($activeLanguages as $language)
+                                            <tr>
+                                                <td><strong>{{ $language->language_name }}: </strong></td>
+                                                <td>{{ $model->getTranslation('fio', $language->language_locale_id) }}</td>
+                                                <td>{{ $model->getTranslation('position', $language->language_locale_id) }}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <hr>
                             <h4>Описание:</h4>
                             <div class="row">
-                                <div class="col-4"><strong>Укр:</strong></div>
-                                <div class="col-4"><strong>Англ:</strong></div>
-                                <div class="col-4"><strong>Рус:</strong></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-4">{!! $model->getTranslation('description', 'ua') !!}</div>
-                                <div class="col-4">{!! $model->getTranslation('description', 'en') !!}</div>
-                                <div class="col-4">{!! $model->getTranslation('description', 'ru') !!}</div>
+                                <div class="col-12">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                @foreach($activeLanguages as $language)
+                                                    <td><strong>{{ $language->language_name }}: </strong></td>
+                                                @endforeach
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                @foreach($activeLanguages as $language)
+                                                    <td>{!! $model->getTranslation('description', 'ua') !!}</td>
+                                                @endforeach
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="card-footer">
                     <a href="{{ route($routePrefix . '.index') }}" class="btn btn-default">Назад</a>
