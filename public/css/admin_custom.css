@@ -30,3 +30,6 @@ span.error-help-block{
     margin: 0 auto;
     padding: 3px;
 }
+div.note-frame {
+    margin-bottom: 2px;
+}
