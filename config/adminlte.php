@@ -425,6 +425,11 @@ return [
                     'asset' => false,
                     'location' => '/vendor/jquery-validate/jquery.validate.min.js',
                 ],
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '/vendor/jquery-validate/additional-methods.min.js',
+                ],
             ],
         ],
     ],

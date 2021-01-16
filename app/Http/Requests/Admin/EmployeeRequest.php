@@ -28,7 +28,9 @@ class EmployeeRequest extends FormRequest
         $rules = [
             'fio.*' => 'required',
             'description.*' => 'required',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image' => function(){
+                return $this->isMethod('POST') ? 'required|image|mimes:jpeg,png,jpg,gif|max:2048' : '';
+            }
         ];
 
         return array_merge($positionRules, $rules);

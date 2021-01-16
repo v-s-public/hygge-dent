@@ -131,9 +131,12 @@ class EmployeesController extends Controller
     public function update(EmployeeRequest $request, int $id) : RedirectResponse
     {
         $model = Employee::find($id);
-        $model->deleteImage();
+        $imageName = $model->image;
 
-        $imageName = ImagesService::saveOne($this->diskName, $request->image);
+        if($request->get('image')) {
+            $model->deleteImage();
+            $imageName = ImagesService::saveOne($this->diskName, $request->image);
+        }
 
         $model->update($this->fillData($request, $imageName));
 

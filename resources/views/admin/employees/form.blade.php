@@ -54,6 +54,12 @@
         let caption = '{{ isset($model) ? $model->image : null }}';
         $("#image").fileinput(getFileInputOptions(isUpdateAction, imageUrl, caption));
 
+        $("input:file").change(function (){
+            $('#image-error').css('display', 'none')
+        });
+
+        // Summernote
+
         let summernoteForm = $('#form');
         let summernoteElementsIds = [];
         let activeLocaleIds = [];
@@ -102,7 +108,23 @@
             let fioRules = buildRequiredRulesByFieldNameAndActiveLanguages('fio');
             let descriptionRules = buildRequiredRulesByFieldNameAndActiveLanguages('description');
             let positionRules = buildDependedFieldsRules()
-            let imageRules = {'image': {required: true}}
+            let imageRules = {
+                'image':
+                    {
+                        required: {
+                            depends: function () {
+                                if (!isUpdateAction) {
+                                    return true;
+                                } else {
+                                    if($('.file-preview-thumbnails').length){
+                                        return $('.file-preview-thumbnails').is(':empty')
+                                    }
+                                }
+                            }
+                        },
+                        extension: "jpeg|png|jpg|gif"
+                    }
+            }
             return Object.assign(rules, fioRules, positionRules, descriptionRules, imageRules)
         }
 
@@ -111,9 +133,9 @@
             errorElement: "span",
             rules: getRules(),
             messages: {
-                "position[ua]" : 'Поле является обязательным, если поле "Должность" заполнено хотя бы для одного языка.',
-                "position[en]" : 'Поле является обязательным, если поле "Должность" заполнено хотя бы для одного языка.',
-                "position[ru]" : 'Поле является обязательным, если поле "Должность" заполнено хотя бы для одного языка.',
+                "position[ua]" : 'Поле "Должность" является обязательным, если оно заполнено хотя бы для одного языка.',
+                "position[en]" : 'Поле "Должность" является обязательным, если оно заполнено хотя бы для одного языка.',
+                "position[ru]" : 'Поле "Должность" является обязательным, если оно заполнено хотя бы для одного языка.',
             },
             errorPlacement: function (error, element) {
                 error.addClass("invalid-feedback");
@@ -155,6 +177,7 @@
 
     jQuery.extend(jQuery.validator.messages, {
         required: "Поле является обязательным для заполения.",
+        extension: "Загрузить можно только изображения в форматах: jpeg, png, jpg, gif."
     });
 </script>
 
