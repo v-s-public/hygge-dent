@@ -53,6 +53,6 @@ class Images
      */
     private function generateFileName(string $disk, UploadedFile $file) : string
     {
-        return 'employee-' . time() . '.' . $file->extension();
+        return $disk . '-' . time() . '.' . $file->extension();
     }
 }

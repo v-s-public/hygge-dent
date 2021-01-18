@@ -243,6 +243,12 @@ return [
 //        ],
         ['header' => 'Контент'],
         [
+            'text' => 'Слайдер',
+            'route'  => 'admin.slider-frames.index',
+            'icon' => 'fas fa-fw fa-images',
+            'active' => ['slider-frames/*']
+        ],
+        [
             'text' => 'Сотрудники',
             'route'  => 'admin.employees.index',
             'icon' => 'fas fa-fw fa-users',

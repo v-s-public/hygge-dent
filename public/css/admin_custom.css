@@ -12,6 +12,11 @@
     width: 50px; !important;
 }
 
+.slider-grid-image-column{
+    max-width: 120px; !important;
+    width: 120px; !important;
+}
+
 .add-button-container{
     margin: 0 0 1.25rem 0;
 }

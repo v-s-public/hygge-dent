@@ -32,6 +32,9 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
     Route::middleware('auth')->name('admin.')->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
+        Route::resource('slider-frames', App\Http\Controllers\Admin\SliderController::class);
+        Route::get('slider-frames/list/all', [App\Http\Controllers\Admin\SliderController::class, 'resourceList'])->name('slider-frames.list');
+
         Route::resource('employees', App\Http\Controllers\Admin\EmployeesController::class);
         Route::get('employees/list/all', [App\Http\Controllers\Admin\EmployeesController::class, 'resourceList'])->name('employees.list');
 

@@ -84,7 +84,22 @@ return [
                 ],
             ],
         ],
-
+        'slider' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/images/slider'),
+            'url' => '/storage/images/slider',
+            'visibility' => 'public',
+            'permissions' => [
+                'file' => [
+                    'public' => 0775,
+                    'private' => 0700,
+                ],
+                'dir' => [
+                    'public' => 0775,
+                    'private' => 0700,
+                ],
+            ],
+        ],
     ],
 
     /*
