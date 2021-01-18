@@ -6,9 +6,6 @@ use App\Facades\Admin\ImagesService;
 
 trait HasOneImage
 {
-    public string $diskName;
-    public string $image;
-
     /**
      * Get Entity Image
      *
