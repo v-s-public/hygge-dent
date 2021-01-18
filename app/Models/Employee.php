@@ -2,14 +2,14 @@
 
 namespace App\Models;
 
-use App\Facades\Admin\ImagesService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use App\Traits\HasOneImage;
 
 class Employee extends Model
 {
-    use HasFactory, HasTranslations;
+    use HasFactory, HasTranslations, HasOneImage;
 
     protected $primaryKey = 'employee_id';
 
@@ -18,22 +18,4 @@ class Employee extends Model
     protected $fillable = ['fio', 'position', 'description', 'image'];
 
     protected string $diskName = 'employees';
-
-    /**
-     * Get Employee Image
-     *
-     * @return string
-     */
-    public function getImage() : string
-    {
-        return ImagesService::getOne($this->diskName, $this->image);
-    }
-
-    /**
-     * Delete Employee Image
-     */
-    public function deleteImage()
-    {
-        ImagesService::deleteOne($this->diskName, $this->image);
-    }
 }
