@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employee;
 use App\Models\Language;
 use App\Models\PriceSection;
+use App\Models\Slider;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
@@ -19,7 +20,8 @@ class HomeController extends Controller
         $activeLanguages = Language::where('language_status', true)->get();
         $employees = Employee::all();
         $priceSections = PriceSection::with('pricePositions')->get();
+        $sliderFrames = Slider::all();
 
-        return view('frontend.home', compact('employees', 'activeLanguages', 'priceSections'));
+        return view('frontend.home', compact('employees', 'activeLanguages', 'priceSections', 'sliderFrames'));
     }
 }
