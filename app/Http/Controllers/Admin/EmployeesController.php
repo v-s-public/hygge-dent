@@ -133,7 +133,7 @@ class EmployeesController extends Controller
         $model = Employee::find($id);
         $imageName = $model->image;
 
-        if($request->get('image')) {
+        if($request->image) {
             $model->deleteImage();
             $imageName = ImagesService::saveOne($this->diskName, $request->image);
         }
