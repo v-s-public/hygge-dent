@@ -20,6 +20,7 @@
                     <div class="card-footer">
                         <a href="{{ route($routePrefix . '.index') }}" class="btn btn-default">Назад</a>
                         <button type="submit" class="btn btn-primary">Сохранить</button>
+                        <input type="submit" class="btn btn-primary" name="add_new" value="Сохранить и создать новую запись">
                     </div>
                 </form>
             </div>

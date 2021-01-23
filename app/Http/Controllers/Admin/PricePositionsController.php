@@ -77,6 +77,10 @@ class PricePositionsController extends Controller
     {
         PricePosition::create($this->fillData($request));
 
+        if ($request->has('add_new')) {
+            return redirect(route($this->routePrefix . '.create'));
+        }
+
         return redirect(route($this->routePrefix . '.index'));
     }
 
