@@ -2,3 +2,16 @@
 .lang-switcher li {
     display: inline-block;
 }
+
+#slider .carousel-item{
+    max-height: 500px;
+}
+
+.required-field-asterisk{
+    color: #FF0000;
+}
+
+label.error{
+    color: red;
+    font-size: 12px;
+}

@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::name('api.')->group(function () {
+    Route::name('v1.')->group(function () {
+        Route::post('v1/appointment', App\Http\Controllers\API\v1\AppointmentController::class)
+            ->name('appointment');
+    });
 });

@@ -51,6 +51,11 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
             Route::post('languages/toggle-status', [App\Http\Controllers\Admin\LanguagesController::class, 'toggleStatus'])->name('languages.toggle-status');
         });
 
+        Route::prefix('notifications')->name('notifications.')->group(function () {
+            Route::resource('appointments', App\Http\Controllers\Admin\AppointmentController::class)
+                ->only(['index', 'show', 'destroy']);
+            Route::get('appointments/list/all', [App\Http\Controllers\Admin\AppointmentController::class, 'resourceList'])->name('appointments.list');
+        });
     });
 });
 

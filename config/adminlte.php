@@ -280,6 +280,15 @@ return [
             'icon' => 'fas fa-fw fa-globe-europe',
             //'active' => ['employees/*']
         ],
+        ['header' => 'Оповещения'],
+        [
+            'text'        => 'Записи на приём',
+            'route'         => 'admin.notifications.appointments.index',
+            'icon'        => 'fas fa-fw fa-book-medical',
+            'active' => ['notifications/appointments/*']
+            //'label'       => 4,
+            //'label_color' => 'danger',
+        ],
 //        ['header' => 'labels'],
 //        [
 //            'text'       => 'important',

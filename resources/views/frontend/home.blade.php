@@ -21,11 +21,13 @@
         @include('frontend.parts.prices')
 
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-        <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/owl-carousel/owl.carousel.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery-input-mask/jquery.inputmask.bundle.min.js') }}"></script>
+        <script src="{{ asset('vendor/jquery-validate/jquery.validate.min.js') }}"></script>
 
         @include('frontend.parts.js.employees_js')
+        @include('frontend.parts.js.appointment_model_form_handler_js')
     </body>
 </html>

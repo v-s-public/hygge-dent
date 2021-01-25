@@ -16,8 +16,10 @@
                                     <h3 style="color: black">{{ $frame->frame_title }}</h3>
                                     <p style="color: black">{{ $frame->frame_description }}</p>
                                     <div>
-                                        <button class="btn btn-primary m-1">Связаться с нами</button>
-                                        <button class="btn btn-primary m-1">Записаться на приём</button>
+                                        <button class="btn btn-primary m-1">{{__('frontend.slider.buttons.contact_us')}}</button>
+                                        <button type="button" class="btn btn-primary m-1" data-toggle="modal" data-target="#appointmentFormModal">
+                                            {{__('frontend.slider.buttons.make_an_appointment')}}
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -35,4 +37,8 @@
             </div>
         </div>
     </div>
+
+    @include('frontend.parts.modals.appointment')
+    @include('frontend.parts.modals.appointment_success')
+
 </section>
