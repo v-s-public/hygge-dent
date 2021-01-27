@@ -247,7 +247,7 @@ return [
         [
             'key' => 'content_employees',
             'text' => 'Сотрудники',
-            'route'  => 'admin.employees.index',
+            'route'  => 'admin.content.employees.index',
             'icon' => 'fas fa-fw fa-users',
             'active' => ['employees/*']
         ],

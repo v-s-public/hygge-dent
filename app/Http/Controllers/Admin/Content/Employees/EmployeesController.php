@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Content\Employees;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\EmployeeRequest;
@@ -15,8 +15,8 @@ class EmployeesController extends Controller
 {
     use Translation;
 
-    protected string $folderPrefix = 'admin.employees';
-    protected string $routePrefix = 'admin.employees';
+    protected string $folderPrefix = 'admin.content.employees';
+    protected string $routePrefix = 'admin.content.employees';
     protected string $diskName = 'employees';
 
     /**

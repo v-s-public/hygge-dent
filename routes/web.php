@@ -35,12 +35,14 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         Route::prefix('content')->name('content.')->group(function () {
             Route::resource('slider-frames', App\Http\Controllers\Admin\Content\Slider\SliderController::class);
             Route::get('slider-frames/list/all', [App\Http\Controllers\Admin\Content\Slider\SliderController::class, 'resourceList'])->name('slider-frames.list');
+
+            Route::resource('employees', App\Http\Controllers\Admin\Content\Employees\EmployeesController::class);
+            Route::get('employees/list/all', [App\Http\Controllers\Admin\Content\Employees\EmployeesController::class, 'resourceList'])->name('employees.list');
         });
 
 
 
-        Route::resource('employees', App\Http\Controllers\Admin\EmployeesController::class);
-        Route::get('employees/list/all', [App\Http\Controllers\Admin\EmployeesController::class, 'resourceList'])->name('employees.list');
+
 
         Route::prefix('prices')->name('prices.')->group(function () {
             Route::resource('price-sections', App\Http\Controllers\Admin\PriceSectionsController::class);
