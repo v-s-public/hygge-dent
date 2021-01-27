@@ -47,8 +47,8 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         });
 
         Route::prefix('settings')->name('settings.')->group(function () {
-            Route::get('languages', [App\Http\Controllers\Admin\LanguagesController::class, 'index'])->name('languages');
-            Route::post('languages/toggle-status', [App\Http\Controllers\Admin\LanguagesController::class, 'toggleStatus'])->name('languages.toggle-status');
+            Route::get('languages', [App\Http\Controllers\Admin\Settings\LanguagesController::class, 'index'])->name('languages');
+            Route::post('languages/toggle-status', [App\Http\Controllers\Admin\Settings\LanguagesController::class, 'toggleStatus'])->name('languages.toggle-status');
         });
 
         Route::prefix('notifications')->name('notifications.')->group(function () {

@@ -279,7 +279,6 @@ return [
             'text' => 'Языки',
             'route'  => 'admin.settings.languages',
             'icon' => 'fas fa-fw fa-globe-europe',
-            //'active' => ['employees/*']
         ],
         ['header' => 'Оповещения', 'key' => 'notifications'],
         // Appointments - dynamically from App\Providers\Admin\MenuServiceProvider
