@@ -27,6 +27,28 @@ return [
                 'header' => 'Appointment',
                 'text' => 'Your appointment request was received!',
                 'button' => 'Close'
+            ],
+            'message_form' => [
+                'header' => 'Message',
+                'fields' => [
+                    'fio' => 'First name, last name',
+                    'email' => 'E-mail',
+                    'theme' => 'Тheme',
+                    'message' => 'Message'
+                ],
+                'buttons' => [
+                    'cancel' => 'Cancel',
+                    'send_message' => 'Send'
+                ],
+                'validation_messages' => [
+                    'required' => 'Required field.',
+                    'email' => 'Wrong email format.'
+                ]
+            ],
+            'message_success' => [
+                'header' => 'Message',
+                'text' => 'Your message has been sent!',
+                'button' => 'Close'
             ]
         ]
     ],

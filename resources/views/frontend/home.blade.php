@@ -29,5 +29,6 @@
 
         @include('frontend.parts.js.employees_js')
         @include('frontend.parts.js.appointment_model_form_handler_js')
+        @include('frontend.parts.js.message_modal_form_handler_js')
     </body>
 </html>

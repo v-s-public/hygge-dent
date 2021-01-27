@@ -18,5 +18,7 @@ Route::name('api.')->group(function () {
     Route::name('v1.')->group(function () {
         Route::post('v1/appointment', App\Http\Controllers\API\v1\AppointmentController::class)
             ->name('appointment');
+        Route::post('v1/message', App\Http\Controllers\API\v1\MessageController::class)
+            ->name('message');
     });
 });

@@ -55,6 +55,10 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
             Route::resource('appointments', App\Http\Controllers\Admin\AppointmentController::class)
                 ->only(['index', 'show', 'destroy']);
             Route::get('appointments/list/all', [App\Http\Controllers\Admin\AppointmentController::class, 'resourceList'])->name('appointments.list');
+
+            Route::resource('messages', App\Http\Controllers\Admin\MessagesController::class)
+                ->only(['index', 'show', 'destroy']);
+            Route::get('messages/list/all', [App\Http\Controllers\Admin\MessagesController::class, 'resourceList'])->name('messages.list');
         });
     });
 });

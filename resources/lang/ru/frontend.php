@@ -27,7 +27,30 @@ return [
                     'text' => 'Ваша заявка принята!',
                     'button' => 'Закрить'
                 ]
+            ],
+            'message_form' => [
+                'header' => 'Сообщение',
+                'fields' => [
+                    'fio' => 'Ф.И.О.',
+                    'email' => 'E-mail',
+                    'theme' => 'Тема',
+                    'message' => 'Сообщение'
+                ],
+                'buttons' => [
+                    'cancel' => 'Отменить',
+                    'send_message' => 'Отправить'
+                ],
+                'validation_messages' => [
+                    'required' => 'Это поле должно быть заполнено.',
+                    'email' => 'Неверный формат адреса почты.'
+                ]
+            ],
+            'message_success' => [
+                'header' => 'Сообщение',
+                'text' => 'Ваше Сообщение отправлено!',
+                'button' => 'Закрыть'
             ]
+
         ]
     ],
 ];

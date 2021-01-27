@@ -16,7 +16,10 @@
                                     <h3 style="color: black">{{ $frame->frame_title }}</h3>
                                     <p style="color: black">{{ $frame->frame_description }}</p>
                                     <div>
-                                        <button class="btn btn-primary m-1">{{__('frontend.slider.buttons.contact_us')}}</button>
+                                        <button type="button" class="btn btn-primary m-1" data-toggle="modal" data-target="#messageFormModal">
+                                            {{__('frontend.slider.buttons.contact_us')}}
+                                        </button>
+
                                         <button type="button" class="btn btn-primary m-1" data-toggle="modal" data-target="#appointmentFormModal">
                                             {{__('frontend.slider.buttons.make_an_appointment')}}
                                         </button>
@@ -41,4 +44,6 @@
     @include('frontend.parts.modals.appointment')
     @include('frontend.parts.modals.appointment_success')
 
+    @include('frontend.parts.modals.message')
+    @include('frontend.parts.modals.message_success')
 </section>
