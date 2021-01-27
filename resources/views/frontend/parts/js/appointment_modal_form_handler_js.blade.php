@@ -8,26 +8,26 @@
 
     let validator = appointmentForm.validate({
         rules: {
-            fio: {
+            appointment_fio: {
                 required: true
             },
-            phone: {
+            appointment_phone: {
                 required: true,
                 phoneNumberValidator: true
             },
-            message: {
+            appointment_message: {
                 required: true
             }
         },
         messages: {
-            fio: {
-                required: '{{ __('frontend.slider.modals.appointment.validation_messages.required') }}'
+            appointment_fio: {
+                required: '{{ __('frontend.slider.modals.appointment_form.validation_messages.required') }}'
             },
-            phone: {
-                required: '{{ __('frontend.slider.modals.appointment.validation_messages.required') }}'
+            appointment_phone: {
+                required: '{{ __('frontend.slider.modals.appointment_form.validation_messages.required') }}'
             },
-            message: {
-                required: '{{ __('frontend.slider.modals.appointment.validation_messages.required') }}'
+            appointment_message: {
+                required: '{{ __('frontend.slider.modals.appointment_form.validation_messages.required') }}'
             }
         }
     });
@@ -39,24 +39,24 @@
 
     $.validator.addMethod("phoneNumberValidator", function(value, element) {
         return phoneNumberInvalid(value);
-    }, '{{ __('frontend.slider.modals.appointment.validation_messages.phone_number_format') }}');
+    }, '{{ __('frontend.slider.modals.appointment_form.validation_messages.phone_number_format') }}');
 
     // submit button handler
     $('#appointmentSubmitButton').on('click', function (e) {
         e.preventDefault();
         if (appointmentForm.valid()) {
-            let fio = $('#fio').val();
-            let phone = $('#phone').val();
-            let message = $('#message').val();
+            let appointment_fio = $('#appointment_fio').val();
+            let appointment_phone = $('#appointment_phone').val();
+            let appointment_message = $('#appointment_message').val();
 
             $.ajax({
                 method: "POST",
                 url: "{{ route('api.v1.appointment') }}",
                 data: {
                     _token: "{{ csrf_token() }}",
-                    fio: fio,
-                    phone: phone,
-                    message: message
+                    fio: appointment_fio,
+                    phone: appointment_phone,
+                    message: appointment_message
                 },
                 success: function () {
                     clearForm();

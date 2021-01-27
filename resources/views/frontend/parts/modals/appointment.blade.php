@@ -13,18 +13,18 @@
             <div class="modal-body">
                 <form action="" id="appointmentForm">
                     <div class="form-group">
-                        <label for="fio">{{ __('frontend.slider.modals.appointment_form.fields.fio') }}<span class="required-field-asterisk">*</span></label>
-                        <input type="text" id="fio" name="fio" class="form-control">
+                        <label for="appointment_fio">{{ __('frontend.slider.modals.appointment_form.fields.fio') }}<span class="required-field-asterisk">*</span></label>
+                        <input type="text" id="appointment_fio" name="appointment_fio" class="form-control">
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">{{ __('frontend.slider.modals.appointment_form.fields.phone') }}<span class="required-field-asterisk">*</span></label>
-                        <input type="text" id="phone" name="phone" class="form-control phone-input">
+                        <label for="appointment_phone">{{ __('frontend.slider.modals.appointment_form.fields.phone') }}<span class="required-field-asterisk">*</span></label>
+                        <input type="text" id="appointment_phone" name="appointment_phone" class="form-control phone-input">
                     </div>
 
                     <div class="form-group">
-                        <label for="message">{{ __('frontend.slider.modals.appointment_form.fields.message') }}<span class="required-field-asterisk">*</span></label>
-                        <textarea name="message" id="message" class="form-control"></textarea>
+                        <label for="appointment_message">{{ __('frontend.slider.modals.appointment_form.fields.message') }}<span class="required-field-asterisk">*</span></label>
+                        <textarea name="appointment_message" id="appointment_message" class="form-control"></textarea>
                     </div>
                 </form>
             </div>
