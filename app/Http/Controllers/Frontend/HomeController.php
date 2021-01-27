@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Employee;
-use App\Models\Language;
+use App\Models\Settings\Language;
 use App\Models\PriceSection;
 use App\Models\Slider;
 use Illuminate\Contracts\View\View;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Settings;
 
 use App\Http\Controllers\Controller;
-use App\Models\Language;
+use App\Models\Settings\Language;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
