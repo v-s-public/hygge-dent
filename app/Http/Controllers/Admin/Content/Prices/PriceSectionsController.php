@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Content\Prices;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PriceSectionRequest;
@@ -14,8 +14,8 @@ class PriceSectionsController extends Controller
 {
     use Translation;
 
-    protected string $folderPrefix = 'admin.prices.price-sections';
-    protected string $routePrefix = 'admin.prices.price-sections';
+    protected string $folderPrefix = 'admin.content.prices.price-sections';
+    protected string $routePrefix = 'admin.content.prices.price-sections';
 
     /**
      * Display a listing of the resource.

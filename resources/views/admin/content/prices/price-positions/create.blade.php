@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Позиции каталога цен - Редактировать позицию')
+@section('title', 'Позиции каталога цен - Добавить позицию')
 
 @section('content')
     <div class="row">
@@ -8,19 +8,19 @@
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <i class="fas fa-edit"></i> Редактировать позицию
+                        <i class="fas fa-plus"></i> Добавить позицию
                     </h3>
                 </div>
-                <form id="form" action="{{ route($routePrefix . '.update', $model->price_position_id) }}" method="post">
+                <form id="form" action="{{ route($routePrefix . '.store') }}" method="post">
                     <div class="card-body">
                         @csrf
-                        @method('PUT')
-                        @include('admin.prices.price-positions.form')
+                        @include('admin.content.prices.price-positions.form')
                     </div>
 
                     <div class="card-footer">
                         <a href="{{ route($routePrefix . '.index') }}" class="btn btn-default">Назад</a>
                         <button type="submit" class="btn btn-primary">Сохранить</button>
+                        <input type="submit" class="btn btn-primary" name="add_new" value="Сохранить и создать новую запись">
                     </div>
                 </form>
             </div>

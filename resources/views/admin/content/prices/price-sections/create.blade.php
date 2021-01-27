@@ -14,7 +14,7 @@
                 <form id="form" action="{{ route($routePrefix . '.store') }}" method="post">
                     <div class="card-body">
                         @csrf
-                        @include('admin.prices.price-sections.form')
+                        @include('admin.content.prices.price-sections.form')
                     </div>
 
                     <div class="card-footer">

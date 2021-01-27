@@ -260,14 +260,14 @@ return [
                 [
                     'key' => 'content_prices_sections',
                     'text' => 'Разделы каталога цен',
-                    'route'  => 'admin.prices.price-sections.index',
+                    'route'  => 'admin.content.prices.price-sections.index',
                     'icon' => 'fas fa-fw fa-list',
                     'active' => ['prices/price-sections/*']
                 ],
                 [
                     'key' => 'content_positions',
                     'text' => 'Позиции каталога цен',
-                    'route'  => 'admin.prices.price-positions.index',
+                    'route'  => 'admin.content.prices.price-positions.index',
                     'icon' => 'fas fa-fw fa-list',
                     'active' => ['prices/price-positions/*']
                 ],

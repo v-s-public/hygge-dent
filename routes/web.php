@@ -30,33 +30,33 @@ Route::post('logout', [App\Http\Controllers\Auth\LoginController::class, 'logout
 
 Route::domain('admin.' . env('SITE_URL'))->group(function () {
     Route::middleware('auth')->name('admin.')->group(function () {
+        /** Dashboard **/
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
+        /** Content **/
         Route::prefix('content')->name('content.')->group(function () {
             Route::resource('slider-frames', App\Http\Controllers\Admin\Content\Slider\SliderController::class);
             Route::get('slider-frames/list/all', [App\Http\Controllers\Admin\Content\Slider\SliderController::class, 'resourceList'])->name('slider-frames.list');
 
             Route::resource('employees', App\Http\Controllers\Admin\Content\Employees\EmployeesController::class);
             Route::get('employees/list/all', [App\Http\Controllers\Admin\Content\Employees\EmployeesController::class, 'resourceList'])->name('employees.list');
+
+            Route::prefix('prices')->name('prices.')->group(function () {
+                Route::resource('price-sections', App\Http\Controllers\Admin\Content\Prices\PriceSectionsController::class);
+                Route::get('price-sections/list/all', [App\Http\Controllers\Admin\Content\Prices\PriceSectionsController::class, 'resourceList'])->name('price-sections.list');
+
+                Route::resource('price-positions', App\Http\Controllers\Admin\Content\Prices\PricePositionsController::class);
+                Route::get('price-positions/list/all', [App\Http\Controllers\Admin\Content\Prices\PricePositionsController::class, 'resourceList'])->name('price-positions.list');
+            });
         });
 
-
-
-
-
-        Route::prefix('prices')->name('prices.')->group(function () {
-            Route::resource('price-sections', App\Http\Controllers\Admin\PriceSectionsController::class);
-            Route::get('price-sections/list/all', [App\Http\Controllers\Admin\PriceSectionsController::class, 'resourceList'])->name('price-sections.list');
-
-            Route::resource('price-positions', App\Http\Controllers\Admin\PricePositionsController::class);
-            Route::get('price-positions/list/all', [App\Http\Controllers\Admin\PricePositionsController::class, 'resourceList'])->name('price-positions.list');
-        });
-
+        /** Settings **/
         Route::prefix('settings')->name('settings.')->group(function () {
             Route::get('languages', [App\Http\Controllers\Admin\Settings\LanguagesController::class, 'index'])->name('languages');
             Route::post('languages/toggle-status', [App\Http\Controllers\Admin\Settings\LanguagesController::class, 'toggleStatus'])->name('languages.toggle-status');
         });
 
+        /** Notifications **/
         Route::prefix('notifications')->name('notifications.')->group(function () {
             Route::resource('appointments', App\Http\Controllers\Admin\Notifications\AppointmentController::class)
                 ->only(['index', 'show', 'destroy']);
