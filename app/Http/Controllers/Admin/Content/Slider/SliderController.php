@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\Content\Slider;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SliderRequest;
@@ -16,8 +16,8 @@ class SliderController extends Controller
 {
     use Translation;
 
-    protected string $folderPrefix = 'admin.slider-frames';
-    protected string $routePrefix = 'admin.slider-frames';
+    protected string $folderPrefix = 'admin.content.slider.slider-frames';
+    protected string $routePrefix = 'admin.content.slider.slider-frames';
     protected string $diskName = 'slider';
 
     /**

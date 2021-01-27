@@ -15,7 +15,7 @@
                     <div class="card-body">
                         @csrf
                         @method('PUT')
-                        @include('admin.slider-frames.form')
+                        @include('admin.content.slider.slider-frames.form')
                     </div>
 
                     <div class="card-footer">
