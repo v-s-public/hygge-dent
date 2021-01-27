@@ -240,7 +240,7 @@ return [
         [
             'key' => 'content_slider',
             'text' => 'Слайдер',
-            'route'  => 'admin.content.slider.slider-frames.index',
+            'route'  => 'admin.content.slider-frames.index',
             'icon' => 'fas fa-fw fa-images',
             'active' => ['slider-frames/*']
         ],

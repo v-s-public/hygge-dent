@@ -14,7 +14,7 @@
                 <form id="form" action="{{ route($routePrefix . '.store') }}" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         @csrf
-                        @include('admin.content.slider.slider-frames.form')
+                        @include('admin.content.slider-frames.form')
                     </div>
 
                     <div class="card-footer">

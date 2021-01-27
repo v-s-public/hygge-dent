@@ -33,10 +33,8 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('dashboard');
 
         Route::prefix('content')->name('content.')->group(function () {
-            Route::prefix('slider')->name('slider.')->group(function () {
-                Route::resource('slider-frames', App\Http\Controllers\Admin\Content\Slider\SliderController::class);
-                Route::get('slider-frames/list/all', [App\Http\Controllers\Admin\Content\Slider\SliderController::class, 'resourceList'])->name('slider-frames.list');
-            });
+            Route::resource('slider-frames', App\Http\Controllers\Admin\Content\Slider\SliderController::class);
+            Route::get('slider-frames/list/all', [App\Http\Controllers\Admin\Content\Slider\SliderController::class, 'resourceList'])->name('slider-frames.list');
         });
 
 

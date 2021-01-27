@@ -16,8 +16,8 @@ class SliderController extends Controller
 {
     use Translation;
 
-    protected string $folderPrefix = 'admin.content.slider.slider-frames';
-    protected string $routePrefix = 'admin.content.slider.slider-frames';
+    protected string $folderPrefix = 'admin.content.slider-frames';
+    protected string $routePrefix = 'admin.content.slider-frames';
     protected string $diskName = 'slider';
 
     /**
