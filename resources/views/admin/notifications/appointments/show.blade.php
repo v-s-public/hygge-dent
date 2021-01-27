@@ -26,7 +26,7 @@
                                 <td>{{ $model->fio }}</td>
                                 <td>{{ $model->phone }}</td>
                                 <td>{{ $model->message }}</td>
-                                <td>{{ $model->getAppointmentDate() }}</td>
+                                <td>{{ $model->getNotificationDate() }}</td>
                             </tr>
                         </tbody>
                     </table>

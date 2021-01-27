@@ -34,7 +34,7 @@ class MenuServiceProvider extends ServiceProvider
                 'route' => 'admin.notifications.appointments.index',
                 'icon' => 'fas fa-fw fa-book-medical',
                 'active' => ['notifications/appointments/*'],
-                'label'       => Appointment::getNewAppointmentsCount(),
+                'label'       => Appointment::getNewNotificationsCount(),
                 'label_color' => 'danger'
             ]);
         });

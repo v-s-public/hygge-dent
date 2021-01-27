@@ -38,7 +38,7 @@ class AppointmentController extends Controller
 
         return Datatables::of($model)
             ->addColumn('date-time', function($model) {
-                return $model->getAppointmentDate();
+                return $model->getNotificationDate();
             })
             ->addColumn('is_viewed', function($model) {
                 return $model->is_viewed ? '<small class="badge badge badge-success">Просмотрена</small>' : '<small class="badge badge-warning">Новая</small>';
