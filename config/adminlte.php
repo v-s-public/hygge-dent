@@ -230,42 +230,42 @@ return [
 //            'topnav' => true,
 //        ],
 //        [
-//            'text' => 'blog',
-//            'url'  => 'admin/blog',
-//            'can'  => 'manage-blog',
-//        ],
-//        [
 //            'text'        => 'pages',
 //            'url'         => 'admin/pages',
 //            'icon'        => 'far fa-fw fa-file',
 //            'label'       => 4,
 //            'label_color' => 'success',
 //        ],
-        ['header' => 'Контент'],
+        ['header' => 'Контент', 'key' => 'content'],
         [
+            'key' => 'content_slider',
             'text' => 'Слайдер',
             'route'  => 'admin.slider-frames.index',
             'icon' => 'fas fa-fw fa-images',
             'active' => ['slider-frames/*']
         ],
         [
+            'key' => 'content_employees',
             'text' => 'Сотрудники',
             'route'  => 'admin.employees.index',
             'icon' => 'fas fa-fw fa-users',
             'active' => ['employees/*']
         ],
         [
+            'key' => 'content_prices',
             'text'    => 'Цены',
             'icon'    => 'fas fa-fw fa-money-bill-wave',
             'active' => ['prices/*'],
             'submenu' => [
                 [
+                    'key' => 'content_prices_sections',
                     'text' => 'Разделы каталога цен',
                     'route'  => 'admin.prices.price-sections.index',
                     'icon' => 'fas fa-fw fa-list',
                     'active' => ['prices/price-sections/*']
                 ],
                 [
+                    'key' => 'content_positions',
                     'text' => 'Позиции каталога цен',
                     'route'  => 'admin.prices.price-positions.index',
                     'icon' => 'fas fa-fw fa-list',
@@ -273,22 +273,17 @@ return [
                 ],
             ],
         ],
-        ['header' => 'Настройки'],
+        ['header' => 'Настройки', 'key' => 'settings'],
         [
+            'key' => 'settings_languages',
             'text' => 'Языки',
             'route'  => 'admin.settings.languages',
             'icon' => 'fas fa-fw fa-globe-europe',
             //'active' => ['employees/*']
         ],
-        ['header' => 'Оповещения'],
-        [
-            'text'        => 'Записи на приём',
-            'route'         => 'admin.notifications.appointments.index',
-            'icon'        => 'fas fa-fw fa-book-medical',
-            'active' => ['notifications/appointments/*']
-            //'label'       => 4,
-            //'label_color' => 'danger',
-        ],
+        ['header' => 'Оповещения', 'key' => 'notifications'],
+        // Appointments - dynamically from App\Providers\Admin\MenuServiceProvider
+
 //        ['header' => 'labels'],
 //        [
 //            'text'       => 'important',

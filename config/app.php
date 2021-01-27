@@ -175,6 +175,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\Admin\ImagesServiceProvider::class,
+        App\Providers\Admin\MenuServiceProvider::class
 
     ],
 
