@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\v1;
 
 use App\Http\Controllers\Controller;
-use App\Models\Appointment;
+use App\Models\Notifications\Appointment;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

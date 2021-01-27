@@ -2,8 +2,8 @@
 
 namespace App\Providers\Admin;
 
-use App\Models\Appointment;
-use App\Models\Message;
+use App\Models\Notifications\Appointment;
+use App\Models\Notifications\Message;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Events\Dispatcher;
 use JeroenNoten\LaravelAdminLte\Events\BuildingMenu;

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Notifications;
 
 use App\Http\Controllers\Controller;
-use App\Models\Message;
+use App\Models\Notifications\Message;
 use Yajra\DataTables\DataTables;
 use Illuminate\Contracts\View\View;
 
