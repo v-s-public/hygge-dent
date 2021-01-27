@@ -52,13 +52,13 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
         });
 
         Route::prefix('notifications')->name('notifications.')->group(function () {
-            Route::resource('appointments', App\Http\Controllers\Admin\AppointmentController::class)
+            Route::resource('appointments', App\Http\Controllers\Admin\Notifications\AppointmentController::class)
                 ->only(['index', 'show', 'destroy']);
-            Route::get('appointments/list/all', [App\Http\Controllers\Admin\AppointmentController::class, 'resourceList'])->name('appointments.list');
+            Route::get('appointments/list/all', [App\Http\Controllers\Admin\Notifications\AppointmentController::class, 'resourceList'])->name('appointments.list');
 
-            Route::resource('messages', App\Http\Controllers\Admin\MessagesController::class)
+            Route::resource('messages', App\Http\Controllers\Admin\Notifications\MessagesController::class)
                 ->only(['index', 'show', 'destroy']);
-            Route::get('messages/list/all', [App\Http\Controllers\Admin\MessagesController::class, 'resourceList'])->name('messages.list');
+            Route::get('messages/list/all', [App\Http\Controllers\Admin\Notifications\MessagesController::class, 'resourceList'])->name('messages.list');
         });
     });
 });
