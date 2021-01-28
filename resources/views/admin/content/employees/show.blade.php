@@ -54,7 +54,7 @@
                                         <tbody>
                                             <tr>
                                                 @foreach($activeLanguages as $language)
-                                                    <td>{!! $model->getTranslation('description', 'ua') !!}</td>
+                                                    <td>{!! $model->getTranslation('description', $language->language_locale_id) !!}</td>
                                                 @endforeach
                                             </tr>
                                         </tbody>
