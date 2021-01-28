@@ -52,6 +52,9 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
             Route::prefix('about-us')->name('about-us.')->group(function () {
                 Route::resource('articles', App\Http\Controllers\Admin\Content\AboutUs\ArticlesController::class);
                 Route::get('articles/list/all', [App\Http\Controllers\Admin\Content\AboutUs\ArticlesController::class, 'resourceList'])->name('articles.list');
+
+                Route::resource('results', App\Http\Controllers\Admin\Content\AboutUs\ResultsController::class);
+                Route::get('results/list/all', [App\Http\Controllers\Admin\Content\AboutUs\ResultsController::class, 'resourceList'])->name('results.list');
             });
         });
 

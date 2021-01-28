@@ -257,6 +257,13 @@ return [
                     'icon' => 'fas fa-fw fa-list',
                     'active' => ['about-us/articles/*']
                 ],
+                [
+                    'key' => 'content_about-us_results',
+                    'text' => 'Результаты работы',
+                    'route'  => 'admin.content.about-us.results.index',
+                    'icon' => 'fas fa-fw fa-poll',
+                    'active' => ['about-us/articles/*']
+                ],
             ],
         ],
         [
@@ -456,6 +463,16 @@ return [
                 ],
             ],
         ],
+        'FlatIcons' => [
+            'active' => false,
+            'files' => [
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => '/vendor/flat-icons/flaticon.css',
+                ],
+            ],
+        ]
     ],
 
     /*
