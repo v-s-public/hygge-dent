@@ -48,6 +48,11 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
                 Route::resource('price-positions', App\Http\Controllers\Admin\Content\Prices\PricePositionsController::class);
                 Route::get('price-positions/list/all', [App\Http\Controllers\Admin\Content\Prices\PricePositionsController::class, 'resourceList'])->name('price-positions.list');
             });
+
+            Route::prefix('about-us')->name('about-us.')->group(function () {
+                Route::resource('articles', App\Http\Controllers\Admin\Content\AboutUs\ArticlesController::class);
+                Route::get('articles/list/all', [App\Http\Controllers\Admin\Content\AboutUs\ArticlesController::class, 'resourceList'])->name('articles.list');
+            });
         });
 
         /** Settings **/

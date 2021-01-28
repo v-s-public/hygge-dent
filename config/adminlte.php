@@ -245,6 +245,21 @@ return [
             'active' => ['slider-frames/*']
         ],
         [
+            'key' => 'content_about-us',
+            'text'    => 'О нас',
+            'icon'    => 'fas fa-fw fa-newspaper',
+            'active' => ['about-us/*'],
+            'submenu' => [
+                [
+                    'key' => 'content_about-us_articles',
+                    'text' => 'Статьи',
+                    'route'  => 'admin.content.about-us.articles.index',
+                    'icon' => 'fas fa-fw fa-list',
+                    'active' => ['about-us/articles/*']
+                ],
+            ],
+        ],
+        [
             'key' => 'content_employees',
             'text' => 'Сотрудники',
             'route'  => 'admin.content.employees.index',
