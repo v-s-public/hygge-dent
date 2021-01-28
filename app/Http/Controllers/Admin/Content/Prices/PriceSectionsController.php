@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin\Content\Prices;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PriceSectionRequest;
-use App\Models\PriceSection;
+use App\Models\Content\Prices\PriceSection;
 use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
 use Illuminate\Contracts\View\View;

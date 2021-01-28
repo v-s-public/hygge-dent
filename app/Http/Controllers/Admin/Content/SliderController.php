@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Content\Slider;
+namespace App\Http\Controllers\Admin\Content;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SliderRequest;
-use App\Models\Slider;
+use App\Models\Content\Slider;
 use App\Traits\Translation;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;

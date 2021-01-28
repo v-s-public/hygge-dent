@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin\Content\Prices;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PricePositionRequest;
-use App\Models\PriceSection;
-use App\Models\PricePosition;
+use App\Models\Content\Prices\PriceSection;
+use App\Models\Content\Prices\PricePosition;
 use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
 use Illuminate\Contracts\View\View;

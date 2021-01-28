@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Content;
 
 use App\Traits\HasOneImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

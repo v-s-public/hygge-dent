@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
-use App\Models\Employee;
+use App\Models\Content\Employee;
 use App\Models\Settings\Language;
-use App\Models\PriceSection;
-use App\Models\Slider;
+use App\Models\Content\Prices\PriceSection;
+use App\Models\Content\Slider;
 use Illuminate\Contracts\View\View;
 
 class HomeController extends Controller
