@@ -289,11 +289,26 @@ return [
             ],
         ],
         [
-            'key' => 'content_employees',
-            'text' => 'Сотрудники',
-            'route'  => 'admin.content.employees.index',
-            'icon' => 'fas fa-fw fa-users',
-            'active' => ['content/employees/*']
+            'key' => 'content_out-team',
+            'text'    => 'Наша команда',
+            'icon'    => 'fas fa-fw fa-user-friends',
+            'active' => ['content/our-team/*'],
+            'submenu' => [
+                [
+                    'key' => 'content_out-team_articles',
+                    'text' => 'Статьи',
+                    'route'  => 'admin.content.our-team.articles.index',
+                    'icon' => 'fas fa-fw fa-list',
+                    'active' => ['content/out-team/articles/*']
+                ],
+                [
+                    'key' => 'content_out-team_employees',
+                    'text' => 'Сотрудники',
+                    'route'  => 'admin.content.our-team.employees.index',
+                    'icon' => 'fas fa-fw fa-users',
+                    'active' => ['content/our-team/employees/*']
+                ],
+            ],
         ],
         [
             'key' => 'content_prices',

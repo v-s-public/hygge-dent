@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Сотрудники - Редактировать профиль сотрудника')
+@section('title', 'Наша команда - Сотрудники - Добавить сотрудника')
 
 @section('content')
     <div class="row">
@@ -8,14 +8,13 @@
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <i class="fas fa-user-edit"></i> Редактировать профиль сотрудника
+                        <i class="fas fa-user-plus"></i> Добавить сотрудника
                     </h3>
                 </div>
-                <form id="form" action="{{ route($routePrefix . '.update', $model->employee_id) }}" method="post" enctype="multipart/form-data">
+                <form id="form" action="{{ route($routePrefix . '.store') }}" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                         @csrf
-                        @method('PUT')
-                        @include('admin.content.employees.form')
+                        @include('admin.content.our-team.employees.form')
                     </div>
 
                     <div class="card-footer">

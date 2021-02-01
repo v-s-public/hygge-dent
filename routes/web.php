@@ -38,9 +38,6 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
             Route::resource('slider-frames', App\Http\Controllers\Admin\Content\SliderController::class);
             Route::get('slider-frames/list/all', [App\Http\Controllers\Admin\Content\SliderController::class, 'resourceList'])->name('slider-frames.list');
 
-            Route::resource('employees', App\Http\Controllers\Admin\Content\EmployeesController::class);
-            Route::get('employees/list/all', [App\Http\Controllers\Admin\Content\EmployeesController::class, 'resourceList'])->name('employees.list');
-
             Route::prefix('prices')->name('prices.')->group(function () {
                 Route::resource('price-sections', App\Http\Controllers\Admin\Content\Prices\PriceSectionsController::class);
                 Route::get('price-sections/list/all', [App\Http\Controllers\Admin\Content\Prices\PriceSectionsController::class, 'resourceList'])->name('price-sections.list');
@@ -63,6 +60,14 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
 
                 Route::resource('services', App\Http\Controllers\Admin\Content\ForPatients\ServicesController::class);
                 Route::get('services/list/all', [App\Http\Controllers\Admin\Content\ForPatients\ServicesController::class, 'resourceList'])->name('services.list');
+            });
+
+            Route::prefix('our-team')->name('our-team.')->group(function () {
+                Route::resource('articles', App\Http\Controllers\Admin\Content\OurTeam\ArticlesController::class);
+                Route::get('articles/list/all', [App\Http\Controllers\Admin\Content\OurTeam\ArticlesController::class, 'resourceList'])->name('articles.list');
+
+                Route::resource('employees', App\Http\Controllers\Admin\Content\OurTeam\EmployeesController::class);
+                Route::get('employees/list/all', [App\Http\Controllers\Admin\Content\OurTeam\EmployeesController::class, 'resourceList'])->name('employees.list');
             });
         });
 

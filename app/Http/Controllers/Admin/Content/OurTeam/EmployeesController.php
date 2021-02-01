@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Content;
+namespace App\Http\Controllers\Admin\Content\OurTeam;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\EmployeeRequest;
-use App\Models\Content\Employee;
+use App\Http\Requests\Admin\Content\OurTeam\EmployeeRequest;
+use App\Models\Content\OurTeam\Employee;
 use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
 use Illuminate\Contracts\View\View;
@@ -15,8 +15,8 @@ class EmployeesController extends Controller
 {
     use Translation;
 
-    protected string $folderPrefix = 'admin.content.employees';
-    protected string $routePrefix = 'admin.content.employees';
+    protected string $folderPrefix = 'admin.content.our-team.employees';
+    protected string $routePrefix = 'admin.content.our-team.employees';
     protected string $diskName = 'employees';
 
     /**

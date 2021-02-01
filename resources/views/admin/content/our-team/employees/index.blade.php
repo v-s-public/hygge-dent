@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 @section('plugins.Datatables', true)
 @section('plugins.JqueryConfirm', true)
-@section('title', 'Сотрудники')
+@section('title', 'Наша команда - Сотрудники')
 
 @section('content')
     <div class="row">
