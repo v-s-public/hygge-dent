@@ -9,6 +9,8 @@ class ArticlesController extends BasicArticleController
 {
     protected string $routePrefix = 'admin.content.about-us.articles';
     protected string $section = 'about_us';
+
+    protected string $titleIndex =  'О нас - Статьи';
     protected string $titleCreate = 'О нас - Статьи - Добавить статью';
     protected string $titleShow =   'О нас - Статьи - Статья';
     protected string $titleEdit =   'О нас - Статьи - Редактировать статью';

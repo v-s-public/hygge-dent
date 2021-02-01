@@ -18,6 +18,8 @@ class ArticlesController extends Controller
     protected string $routePrefix;
     protected string $section;
     protected string $articleModel;
+
+    protected string $titleIndex;
     protected string $titleCreate;
     protected string $titleShow;
     protected string $titleEdit;
@@ -30,7 +32,8 @@ class ArticlesController extends Controller
     public function index() : View
     {
         $routePrefix = $this->routePrefix;
-        return view($this->folderPrefix . '.index', compact('routePrefix'));
+        $title = $this->titleIndex;
+        return view($this->folderPrefix . '.index', compact('routePrefix', 'title'));
     }
 
     /**
