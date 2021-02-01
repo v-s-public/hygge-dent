@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
-use App\Models\Content\Employee;
+use App\Models\Content\OurTeam\Employee;
 use App\Models\Settings\Language;
 use App\Models\Content\Prices\PriceSection;
 use App\Models\Content\Slider;
