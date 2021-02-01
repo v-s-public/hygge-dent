@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Admin\Prices;
+namespace App\Http\Requests\Admin\Content\AboutUs;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PriceSectionRequest extends FormRequest
+class ResultRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,9 @@ class PriceSectionRequest extends FormRequest
     public function rules()
     {
         return [
-            'price_section_name.*' => 'required',
+            'title.*' => 'required',
+            'icon' => 'required',
+            'count' => 'required|integer|min:1'
         ];
     }
 
@@ -36,7 +38,9 @@ class PriceSectionRequest extends FormRequest
     public function messages()
     {
         return [
-            'price_section_name.*.required' => 'Поле является обязательным для заполения.',
+            'title.*.required' => 'Поле является обязательным для заполения.',
+            'icon.required' => 'Поле является обязательным для заполения.',
+            'count.required' => 'Поле является обязательным для заполения.',
         ];
     }
 }

@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\Admin\Content;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\Content\SliderRequest;
-use App\Models\Content\Slider;
 use App\Traits\Translation;
+use App\Http\Requests\Admin\Content\ArticleRequest;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Str;
 use Yajra\DataTables\DataTables;
-use App\Facades\Admin\ImagesService;
 use Illuminate\Http\RedirectResponse;
 
-class SliderController extends Controller
+class ArticlesController extends Controller
 {
     use Translation;
 
-    protected string $folderPrefix = 'admin.content.slider-frames';
-    protected string $routePrefix = 'admin.content.slider-frames';
-    protected string $diskName = 'slider';
+    protected string $folderPrefix = 'admin.content.articles';
+    protected string $routePrefix;
+    protected string $section;
+    protected string $articleModel;
+    protected string $titleCreate;
+    protected string $titleShow;
+    protected string $titleEdit;
 
     /**
      * Display a listing of the resource.
@@ -31,31 +34,26 @@ class SliderController extends Controller
     }
 
     /**
-     * Returns JSON with all Slider entities
+     * Returns JSON with all Employee entities
      *
      * @return mixed
      * @throws \Exception
      */
     public function resourceList()
     {
-        $model = Slider::all();
+        $model = $this->articleModel::where('section', $this->section);
         $routePrefix = $this->routePrefix;
-        $diskName = $this->diskName;
-        $primaryKey = 'frame_id';
+        $primaryKey = 'article_id';
         $actions = ['edit', 'show', 'destroy'];
 
         return Datatables::of($model)
             ->editColumn('title', function ($model){
-                return $model->frame_title;
-            })
-            ->addColumn('image', function ($model) use ($diskName) {
-                $url = ImagesService::getOne($diskName, $model->image);
-                return "<img src='{$url}' class='rounded' width='100px'/>";
+                return $model->title;
             })
             ->addColumn('actions', function($model) use ($routePrefix, $actions, $primaryKey) {
                 return view('admin.common.actions.grid_actions', compact('model', 'routePrefix', 'actions', 'primaryKey'));
             })
-            ->rawColumns(['actions', 'image'])
+            ->rawColumns(['actions'])
             ->make(true);
     }
 
@@ -68,19 +66,20 @@ class SliderController extends Controller
     {
         $routePrefix = $this->routePrefix;
         $activeLanguages = $this->activeLanguages;
+        $title = $this->titleCreate;
 
-        return view($this->folderPrefix . '.create', compact('routePrefix', 'activeLanguages'));
+        return view($this->folderPrefix . '.create', compact('routePrefix', 'activeLanguages', 'title'));
     }
 
     /**
-     * @param SliderRequest $request
+     * @param ArticleRequest $request
      * @return RedirectResponse
      */
-    public function store(SliderRequest $request) : RedirectResponse
+    public function store(ArticleRequest $request) : RedirectResponse
     {
-        $imageName = ImagesService::saveOne($this->diskName, $request->image);
+        $shortCode = $this->generateArticleShortcode();
 
-        Slider::create($this->fillData($request, $imageName));
+        $this->articleModel::create($this->fillData($request, $shortCode));
 
         return redirect(route($this->routePrefix . '.index'));
     }
@@ -93,11 +92,12 @@ class SliderController extends Controller
      */
     public function show(int $id) : View
     {
-        $model = Slider::find($id);
+        $model = $this->articleModel::find($id);
         $routePrefix = $this->routePrefix;
         $activeLanguages = $this->activeLanguages;
+        $title = $this->titleShow;
 
-        return view($this->folderPrefix . '.show', compact('model', 'routePrefix', 'activeLanguages'));
+        return view($this->folderPrefix . '.show', compact('model', 'routePrefix', 'activeLanguages', 'title'));
     }
 
     /**
@@ -108,31 +108,27 @@ class SliderController extends Controller
      */
     public function edit(int $id) : View
     {
-        $model = Slider::find($id);
+        $model = $this->articleModel::find($id);
         $routePrefix = $this->routePrefix;
         $activeLanguages = $this->activeLanguages;
+        $title = $this->titleEdit;
 
-        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix', 'activeLanguages'));
+        return view($this->folderPrefix . '.edit', compact('model', 'routePrefix', 'activeLanguages', 'title'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  SliderRequest  $request
+     * @param  ArticleRequest  $request
      * @param  int  $id
      * @return RedirectResponse
      */
-    public function update(SliderRequest $request, int $id) : RedirectResponse
+    public function update(ArticleRequest $request, int $id) : RedirectResponse
     {
-        $model = Slider::find($id);
-        $imageName = $model->image;
+        $model = $this->articleModel::find($id);
+        $shortCode = $model->short_code;
 
-        if($request->image) {
-            $model->deleteImage();
-            $imageName = ImagesService::saveOne($this->diskName, $request->image);
-        }
-
-        $model->update($this->fillData($request, $imageName));
+        $model->update($this->fillData($request, $shortCode));
 
         return redirect(route($this->routePrefix . '.index'));
     }
@@ -145,24 +141,33 @@ class SliderController extends Controller
      */
     public function destroy(int $id) : void
     {
-        $model = Slider::find($id);
-        $model->deleteImage();
+        $model = $this->articleModel::find($id);
         $model->delete();
     }
 
     /**
      * Fill data for store/update actions
      *
-     * @param SliderRequest $request
-     * @param string $imageName
+     * @param ArticleRequest $request
+     * @param string $shortCode
      * @return array
      */
-    private function fillData(SliderRequest $request, string $imageName) : array
+    private function fillData(ArticleRequest $request, string $shortCode) : array
     {
         return [
-            'frame_title' =>$this->prepareTranslatesForInsertByFieldName($request, 'frame_title'),
-            'frame_description' => $this->prepareTranslatesForInsertByFieldName($request, 'frame_description'),
-            'image' => $imageName
+            'title' =>$this->prepareTranslatesForInsertByFieldName($request, 'title'),
+            'text' => $this->prepareTranslatesForInsertByFieldName($request, 'text'),
+            'short_code' => $shortCode
         ];
+    }
+
+    /**
+     * Generate shortcode for article
+     *
+     * @return string
+     */
+    private function generateArticleShortcode() : string
+    {
+        return $this->section . '_' . Str::random(10);
     }
 }

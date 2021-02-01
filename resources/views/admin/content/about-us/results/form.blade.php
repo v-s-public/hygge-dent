@@ -26,5 +26,5 @@
 </div>
 
 @section('js')
-    {!! JsValidator::formRequest('App\Http\Requests\Admin\AboutUs\ResultRequest', '#form'); !!}
+    {!! JsValidator::formRequest(App\Http\Requests\Admin\Content\AboutUs\ResultRequest::class, '#form'); !!}
 @stop

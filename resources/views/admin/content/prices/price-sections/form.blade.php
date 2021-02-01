@@ -11,5 +11,5 @@
 </div>
 
 @section('js')
-    {!! JsValidator::formRequest('App\Http\Requests\Admin\PriceSectionRequest', '#form'); !!}
+    {!! JsValidator::formRequest(App\Http\Requests\Admin\Content\Prices\PriceSectionRequest::class, '#form'); !!}
 @stop

@@ -32,5 +32,5 @@
 </div>
 
 @section('js')
-    {!! JsValidator::formRequest('App\Http\Requests\Admin\PricePositionRequest', '#form'); !!}
+    {!! JsValidator::formRequest(App\Http\Requests\Admin\Content\Prices\PricePositionRequest::class, '#form'); !!}
 @stop

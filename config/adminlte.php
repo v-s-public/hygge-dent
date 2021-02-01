@@ -242,27 +242,27 @@ return [
             'text' => 'Слайдер',
             'route'  => 'admin.content.slider-frames.index',
             'icon' => 'fas fa-fw fa-images',
-            'active' => ['slider-frames/*']
+            'active' => ['content/slider-frames/*']
         ],
         [
             'key' => 'content_about-us',
             'text'    => 'О нас',
             'icon'    => 'fas fa-fw fa-newspaper',
-            'active' => ['about-us/*'],
+            'active' => ['content/about-us/*'],
             'submenu' => [
                 [
                     'key' => 'content_about-us_articles',
                     'text' => 'Статьи',
                     'route'  => 'admin.content.about-us.articles.index',
                     'icon' => 'fas fa-fw fa-list',
-                    'active' => ['about-us/articles/*']
+                    'active' => ['content/about-us/articles/*']
                 ],
                 [
                     'key' => 'content_about-us_results',
                     'text' => 'Результаты работы',
                     'route'  => 'admin.content.about-us.results.index',
                     'icon' => 'fas fa-fw fa-poll',
-                    'active' => ['about-us/articles/*']
+                    'active' => ['content/about-us/results/*']
                 ],
             ],
         ],
@@ -271,27 +271,27 @@ return [
             'text' => 'Сотрудники',
             'route'  => 'admin.content.employees.index',
             'icon' => 'fas fa-fw fa-users',
-            'active' => ['employees/*']
+            'active' => ['content/employees/*']
         ],
         [
             'key' => 'content_prices',
             'text'    => 'Цены',
             'icon'    => 'fas fa-fw fa-money-bill-wave',
-            'active' => ['prices/*'],
+            'active' => ['content/prices/*'],
             'submenu' => [
                 [
                     'key' => 'content_prices_sections',
                     'text' => 'Разделы каталога цен',
                     'route'  => 'admin.content.prices.price-sections.index',
                     'icon' => 'fas fa-fw fa-list',
-                    'active' => ['prices/price-sections/*']
+                    'active' => ['content/prices/price-sections/*']
                 ],
                 [
                     'key' => 'content_positions',
                     'text' => 'Позиции каталога цен',
                     'route'  => 'admin.content.prices.price-positions.index',
                     'icon' => 'fas fa-fw fa-list',
-                    'active' => ['prices/price-positions/*']
+                    'active' => ['content/prices/price-positions/*']
                 ],
             ],
         ],

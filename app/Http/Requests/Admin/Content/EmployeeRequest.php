@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Admin;
+namespace App\Http\Requests\Admin\Content;
 
 use App\Models\Settings\Language;
 use Illuminate\Foundation\Http\FormRequest;

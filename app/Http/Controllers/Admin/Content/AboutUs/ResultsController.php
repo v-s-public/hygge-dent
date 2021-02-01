@@ -7,7 +7,7 @@ use App\Traits\Translation;
 use Yajra\DataTables\DataTables;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use App\Http\Requests\Admin\AboutUs\ResultRequest;
+use App\Http\Requests\Admin\Content\AboutUs\ResultRequest;
 use App\Models\Content\AboutUs\Result;
 
 class ResultsController extends Controller

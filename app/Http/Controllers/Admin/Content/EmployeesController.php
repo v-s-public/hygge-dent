@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Content;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\EmployeeRequest;
+use App\Http\Requests\Admin\Content\EmployeeRequest;
 use App\Models\Content\Employee;
 use App\Traits\Translation;
 use Yajra\DataTables\DataTables;

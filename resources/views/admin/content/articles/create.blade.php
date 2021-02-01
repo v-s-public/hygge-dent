@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'О нас - Статьи - Редактировать статью')
+@section('title', $title)
 
 @section('content')
     <div class="row">
@@ -8,14 +8,13 @@
             <div class="card card-default color-palette-box">
                 <div class="card-header">
                     <h3 class="card-title">
-                        <i class="fas fa-edit"></i> Редактировать статью
+                        <i class="fas fa-plus"></i> Добавить статью
                     </h3>
                 </div>
-                <form id="form" action="{{ route($routePrefix . '.update', $model->article_id) }}" method="post">
+                <form id="form" action="{{ route($routePrefix . '.store') }}" method="post">
                     <div class="card-body">
                         @csrf
-                        @method('PUT')
-                        @include('admin.content.about-us.articles.form')
+                        @include('admin.content.articles.form')
                     </div>
 
                     <div class="card-footer">

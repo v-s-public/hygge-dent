@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'О нас - Статьи - Статья')
+@section('title', $title)
 
 @section('content')
     <div class="row">
