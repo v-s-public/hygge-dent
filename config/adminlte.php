@@ -267,6 +267,28 @@ return [
             ],
         ],
         [
+            'key' => 'content_for-patients',
+            'text'    => 'Пациентам',
+            'icon'    => 'fas fa-fw fa-hospital-user',
+            'active' => ['content/for-patients/*'],
+            'submenu' => [
+                [
+                    'key' => 'content_for-patients_articles',
+                    'text' => 'Статьи',
+                    'route'  => 'admin.content.for-patients.articles.index',
+                    'icon' => 'fas fa-fw fa-list',
+                    'active' => ['content/for-patients/articles/*']
+                ],
+                [
+                    'key' => 'content_for-patients_services',
+                    'text' => 'Услуги',
+                    'route'  => 'admin.content.for-patients.services.index',
+                    'icon' => 'fas fa-fw fa-briefcase-medical',
+                    'active' => ['content/for-patients/services/*']
+                ],
+            ],
+        ],
+        [
             'key' => 'content_employees',
             'text' => 'Сотрудники',
             'route'  => 'admin.content.employees.index',

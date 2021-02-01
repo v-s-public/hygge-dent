@@ -56,6 +56,14 @@ Route::domain('admin.' . env('SITE_URL'))->group(function () {
                 Route::resource('results', App\Http\Controllers\Admin\Content\AboutUs\ResultsController::class);
                 Route::get('results/list/all', [App\Http\Controllers\Admin\Content\AboutUs\ResultsController::class, 'resourceList'])->name('results.list');
             });
+
+            Route::prefix('for-patients')->name('for-patients.')->group(function () {
+                Route::resource('articles', App\Http\Controllers\Admin\Content\ForPatients\ArticlesController::class);
+                Route::get('articles/list/all', [App\Http\Controllers\Admin\Content\ForPatients\ArticlesController::class, 'resourceList'])->name('articles.list');
+
+                Route::resource('services', App\Http\Controllers\Admin\Content\ForPatients\ServicesController::class);
+                Route::get('services/list/all', [App\Http\Controllers\Admin\Content\ForPatients\ServicesController::class, 'resourceList'])->name('services.list');
+            });
         });
 
         /** Settings **/
