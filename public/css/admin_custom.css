@@ -38,3 +38,7 @@ span.error-help-block{
 div.note-frame {
     margin-bottom: 2px;
 }
+
+.nav-treeview > li {
+    margin-left: 20px;
+}
