@@ -21,6 +21,7 @@
                             <thead>
                             <tr>
                                 <th>Заголовок</th>
+                                <th>Текст</th>
                                 <th>Short code</th>
                                 <th class="actions-column">Действия</th>
                             </tr>
@@ -56,6 +57,7 @@
                 ajax: '{!! route( $routePrefix.'.list') !!}',
                 columns: [
                     { "data": "title" },
+                    { "data": "text" },
                     { "data": "short_code" },
                     { "data": "actions", "orderable": false, "targets": 0 },
                 ]

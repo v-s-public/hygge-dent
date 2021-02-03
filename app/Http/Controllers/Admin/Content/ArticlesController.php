@@ -53,6 +53,9 @@ class ArticlesController extends Controller
             ->editColumn('title', function ($model){
                 return $model->title;
             })
+            ->editColumn('text', function ($model){
+                return $this->getNWordsOfArticle($model->text);
+            })
             ->addColumn('actions', function($model) use ($routePrefix, $actions, $primaryKey) {
                 return view('admin.common.actions.grid_actions', compact('model', 'routePrefix', 'actions', 'primaryKey'));
             })
@@ -172,5 +175,19 @@ class ArticlesController extends Controller
     private function generateArticleShortcode() : string
     {
         return $this->section . '_' . Str::random(10);
+    }
+
+    /**
+     * Get n first words of article
+     *
+     * @param string $text
+     * @param int $wordsNumber
+     * @return string
+     */
+    private function getNWordsOfArticle(string $text, int $wordsNumber = 5) : string
+    {
+        $text = implode(' ', array_slice(explode(' ', $text), 0, $wordsNumber));
+        $text = strip_tags($text) . '...';
+        return $text;
     }
 }
