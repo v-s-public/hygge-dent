@@ -8,7 +8,8 @@ return [
         'results' => 'Results',
         'for_patients' => 'For patients',
         'how_can_we_help_you' => 'How can we help you?',
-        'our_team' => 'Our team'
+        'our_team' => 'Our team',
+        'prices' => 'Prices'
     ],
     'slider' => [
         'buttons' => [
@@ -61,4 +62,7 @@ return [
             ]
         ]
     ],
+    'price' => [
+        'currency' => 'hrn.'
+    ]
 ];

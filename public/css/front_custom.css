@@ -18,6 +18,10 @@
     font-size: 3rem;
 }
 
+.radius-025{
+    border-radius: 0.25rem;
+}
+
 .bordered-image{
     border: 1px solid #eeeeee;
 }
@@ -92,11 +96,19 @@ header.masthead{
     height: 1rem;
 }
 
-.radius-025{
-    border-radius: 0.25rem;
+.table td.price-position-name-cell,
+.table td.price-position-cost-cell{
+    border-bottom: 1px solid #dee2e6;
+    border-top: none;
 }
 
-/* Owl controls */
+.table td.price-position-cost-cell{
+    width: 120px;
+    vertical-align: middle;
+    text-align: right;
+}
+
+/* Owl */
 .owl-prev, .owl-next {
     width: 15px;
     height: 100px;
@@ -113,4 +125,15 @@ header.masthead{
 .employees-carousel .owl-item img {
     display: block;
     width: 14rem;
+}
+
+/* Nav */
+@media (min-width: 992px) {
+    #mainNav {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        border: none;
+        background: rgba(33, 37, 41, .4);
+        transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
+    }
 }

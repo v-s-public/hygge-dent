@@ -8,7 +8,8 @@ return [
         'results' => 'Результаты работы',
         'for_patients' => 'Пацієнтам',
         'how_can_we_help_you' => 'Чим ми можемо Вам допомогти?',
-        'our_team' => 'Наша команда'
+        'our_team' => 'Наша команда',
+        'prices' => 'Ціни'
     ],
     'slider' => [
         'buttons' => [
@@ -61,4 +62,7 @@ return [
             ]
         ]
     ],
+    'price' => [
+        'currency' => 'грн.'
+    ]
 ];

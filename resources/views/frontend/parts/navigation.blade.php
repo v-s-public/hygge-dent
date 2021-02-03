@@ -11,6 +11,7 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about-us">{{ __('frontend.navigation_and_sections.about_us') }}</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#for-patients">{{ __('frontend.navigation_and_sections.for_patients') }}</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#our-team">{{ __('frontend.navigation_and_sections.our_team') }}</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#prices">{{ __('frontend.navigation_and_sections.prices') }}</a></li>
 {{--                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a></li>--}}
 {{--                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>--}}
 {{--                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>--}}

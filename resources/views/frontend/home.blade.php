@@ -26,6 +26,9 @@
         <!-- Our Team -->
         @include('frontend.parts.out_team_section')
 
+        <!-- Prices -->
+        @include('frontend.parts.prices_section')
+
         <!-- Services-->
         <section class="page-section" id="services">
             <div class="container">
