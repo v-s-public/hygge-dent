@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'title' => 'ХЮГГЕ` dent',
+    'navigation_and_sections' => [
+        'home' => 'Головна',
+        'about_us' => 'Про нас',
+        'results' => 'Результаты работы',
+        'for_patients' => 'Пацієнтам',
+        'how_can_we_help_you' => 'Чим ми можемо Вам допомогти?',
+        'our_team' => 'Наша команда'
+    ],
     'slider' => [
         'buttons' => [
             'make_an_appointment' => 'Записатись на прийом',

@@ -1,6 +1,15 @@
 <?php
 
 return [
+    'title' => 'HYGGE` dent',
+    'navigation_and_sections' => [
+        'home' => 'Home',
+        'about_us' => 'About us',
+        'results' => 'Results',
+        'for_patients' => 'For patients',
+        'how_can_we_help_you' => 'How can we help you?',
+        'our_team' => 'Our team'
+    ],
     'slider' => [
         'buttons' => [
             'make_an_appointment' => 'Make an appointment',
