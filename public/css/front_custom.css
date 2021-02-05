@@ -108,6 +108,26 @@ header.masthead{
     text-align: right;
 }
 
+.contact-icon-container{
+    padding: 1.5rem;
+    text-align: center;
+    color: #212529;
+}
+
+.contact-content-container{
+    display: flex;
+    align-items: center;
+}
+
+.contact-section-button{
+    margin-top: 1rem;
+    width: 100%;
+}
+
+#map {
+    height: 471px;
+}
+
 /* Owl */
 .owl-prev, .owl-next {
     width: 15px;
