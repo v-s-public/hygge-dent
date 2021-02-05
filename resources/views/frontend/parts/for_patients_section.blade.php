@@ -15,9 +15,11 @@
 
                 {!! $articleService::getArticleTextByShortCode('for_patients_JwrrOSJay2', 'div', 'article-text') !!}
 
-                <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger m-1" data-toggle="modal" data-target="#appointmentFormModal">
-                    {{__('frontend.slider.buttons.make_an_appointment')}}
-                </button>
+                <div class="text-center">
+                    <button type="button" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger m-1" data-toggle="modal" data-target="#appointmentFormModal">
+                        {{__('frontend.slider.buttons.make_an_appointment')}}
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -50,31 +52,33 @@
             </div>
         </div>
     </section>
-    <div class="row">
-        <div class="col-md-12">
-            {!! $articleService::getArticleTextByShortCode(
-                'for_patients_mRCxhMCLNA',
-                'div',
-                'inner-section-replica text-center text-muted segoe-font font1_25rem'
-            ) !!}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {!! $articleService::getArticleTextByShortCode(
+                    'for_patients_mRCxhMCLNA',
+                    'div',
+                    'inner-section-replica text-center text-muted segoe-font font1_25rem'
+                ) !!}
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            {!! $articleService::getArticleTextByShortCode(
-                'for_patients_eNlcMChrvx',
-                'div',
-                'text-center'
-            ) !!}
+        <div class="row">
+            <div class="col-md-12">
+                {!! $articleService::getArticleTextByShortCode(
+                    'for_patients_eNlcMChrvx',
+                    'div',
+                    'text-center'
+                ) !!}
+            </div>
         </div>
-    </div>
-    <div class="inner-section-photo-divider"></div>
-    <div class="row">
-        <div class="col-md-2 offset-md-4 text-center">
-            <img src="/assets/img/for-patients/arsenal.png" alt="arsenal" class="img-fluid">
-        </div>
-        <div class="col-md-2 text-center">
-            <img src="/assets/img/for-patients/aska.png" alt="aska" class="img-fluid">
+        <div class="inner-section-photo-divider"></div>
+        <div class="row">
+            <div class="col-md-2 offset-md-4 text-center">
+                <img src="/assets/img/for-patients/arsenal.png" alt="arsenal" class="img-fluid">
+            </div>
+            <div class="col-md-2 text-center">
+                <img src="/assets/img/for-patients/aska.png" alt="aska" class="img-fluid">
+            </div>
         </div>
     </div>
 </section>
