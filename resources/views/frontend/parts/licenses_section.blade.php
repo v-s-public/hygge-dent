@@ -55,5 +55,3 @@
         </div>
     </div>
 </section>
-
-@include('frontend.parts.modals.gallery_licenses')

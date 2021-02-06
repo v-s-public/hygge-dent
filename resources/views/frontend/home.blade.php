@@ -38,6 +38,17 @@
         <!-- Footer-->
         @include('frontend.parts.footer')
 
+        <!-- Modals -->
+        @include('frontend.parts.modals.appointment')
+        @include('frontend.parts.modals.appointment_success')
+
+        @include('frontend.parts.modals.message')
+        @include('frontend.parts.modals.message_success')
+
+        @include('frontend.parts.modals.gallery_licenses')
+
+        <!-- Scripts -->
+
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>

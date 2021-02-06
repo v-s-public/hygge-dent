@@ -39,9 +39,3 @@
         </div>
     </div>
 </div>
-
-@include('frontend.parts.modals.appointment')
-@include('frontend.parts.modals.appointment_success')
-
-@include('frontend.parts.modals.message')
-@include('frontend.parts.modals.message_success')
