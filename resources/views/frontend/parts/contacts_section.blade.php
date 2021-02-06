@@ -1,4 +1,4 @@
-<section class="page-section" id="contact">
+<section class="page-section" id="contacts">
     <div class="container">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">{{ __('frontend.navigation_and_sections.contacts') }}</h2>
