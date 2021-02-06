@@ -9,7 +9,10 @@ return [
         'for_patients' => 'For patients',
         'how_can_we_help_you' => 'How can we help you?',
         'our_team' => 'Our team',
-        'prices' => 'Prices'
+        'prices' => 'Prices',
+        'licenses' => 'Licenses',
+        'contacts' => 'Contacts'
+
     ],
     'slider' => [
         'buttons' => [
@@ -64,5 +67,13 @@ return [
     ],
     'price' => [
         'currency' => 'hrn.'
+    ],
+    'contacts' => [
+        'address' => 'Peremohy st., 95-а, Zaporizhzhia',
+        'scheduler' => [
+            'mon_fri' => "Monday - Friday: 9 AM - 6 PM",
+            'saturday' => 'Saturday: 9 AM - 3 AM',
+            'sunday' => 'Sunday: Day off'
+        ]
     ]
 ];

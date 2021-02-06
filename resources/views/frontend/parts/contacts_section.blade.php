@@ -1,7 +1,7 @@
 <section class="page-section" id="contact">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Contact Us</h2>
+            <h2 class="section-heading text-uppercase">{{ __('frontend.navigation_and_sections.contacts') }}</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
@@ -11,7 +11,7 @@
                             <i class="fas fa-3x fa-map-marker-alt"></i>
                         </div>
                         <div class="col-md-10 contact-content-container">
-                            ул. Победы, 95-а, г. Запорожье
+                            {{ __('frontend.contacts.address') }}
                         </div>
                     </div>
 
@@ -38,9 +38,9 @@
                             <i class="fas fa-3x fa-clock"></i>
                         </div>
                         <div class="col-md-10 contact-content-container">
-                            Понедельник - пятница: 9:00 - 18:00 <br>
-                            Суббота: 9:00 - 15:00 <br>
-                            Воскресенье: Выходной
+                            {{ __('frontend.contacts.scheduler.mon_fri') }} <br>
+                            {{ __('frontend.contacts.scheduler.saturday') }} <br>
+                            {{ __('frontend.contacts.scheduler.sunday') }}
                         </div>
                     </div>
                 </div>

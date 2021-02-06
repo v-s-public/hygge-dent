@@ -1,7 +1,7 @@
 <section class="page-section" id="licenses">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Лицензии</h2>
+            <h2 class="section-heading text-uppercase">{{ __('frontend.navigation_and_sections.licenses') }}</h2>
         </div>
         <div class="row">
             <div class="col-12">

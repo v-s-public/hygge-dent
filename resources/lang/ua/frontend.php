@@ -9,7 +9,9 @@ return [
         'for_patients' => 'Пацієнтам',
         'how_can_we_help_you' => 'Чим ми можемо Вам допомогти?',
         'our_team' => 'Наша команда',
-        'prices' => 'Ціни'
+        'prices' => 'Ціни',
+        'licenses' => 'Ліцензії',
+        'contacts' => 'Контакти'
     ],
     'slider' => [
         'buttons' => [
@@ -64,5 +66,13 @@ return [
     ],
     'price' => [
         'currency' => 'грн.'
+    ],
+    'contacts' => [
+        'address' => 'ул. Перемоги, 95-а, м. Запоріжжя',
+        'scheduler' => [
+            'mon_fri' => "Понеділок - п'ятниця: 9:00 - 18:00",
+            'saturday' => 'Субота: 9:00 - 15:00',
+            'sunday' => 'Неділя: Выхідний'
+        ]
     ]
 ];
