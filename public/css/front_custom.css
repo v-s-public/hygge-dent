@@ -147,6 +147,12 @@ header.masthead{
     width: 14rem;
 }
 
+.owl-theme .owl-nav [class*=owl-]:hover {
+    background: #ccc;
+    color: #FFF;
+    text-decoration: none;
+}
+
 /* Nav */
 @media (min-width: 992px) {
     #mainNav {
@@ -171,4 +177,20 @@ header.masthead{
 .thumb{
     margin-top: 15px;
     margin-bottom: 15px;
+}
+
+/* Lang switch */
+select#lang_switcher{
+    background: inherit;
+    border: none;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 0.95rem;
+    color: #fff;
+    letter-spacing: 0.0625em;
+    margin-top: -1px;
+}
+
+select#lang_switcher option{
+    background: rgba(33, 37, 41, .4);
+    border: none;
 }

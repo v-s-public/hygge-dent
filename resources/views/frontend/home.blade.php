@@ -48,7 +48,6 @@
         @include('frontend.parts.modals.gallery_licenses')
 
         <!-- Scripts -->
-
         <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
         <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
@@ -57,6 +56,7 @@
         <script src="{{ asset('vendor/jquery-input-mask/jquery.inputmask.bundle.min.js') }}"></script>
         <script src="{{ asset('vendor/jquery-validate/jquery.validate.min.js') }}"></script>
 
+        @include('frontend.parts.js.lang_switcher_js')
         @include('frontend.parts.js.appointment_modal_form_handler_js')
         @include('frontend.parts.js.message_modal_form_handler_js')
         @include('frontend.parts.js.owl_carousel_js')
