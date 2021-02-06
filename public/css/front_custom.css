@@ -157,3 +157,18 @@ header.masthead{
         transition: padding-top 0.3s ease-in-out, padding-bottom 0.3s ease-in-out;
     }
 }
+
+/* Gallery */
+.btn:focus, .btn:active, button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+#image-gallery .modal-footer{
+    display: block;
+}
+
+.thumb{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
